@@ -1,0 +1,6 @@
+<span id="nav" class="inlineList">/
+  {% for child in page.root %}
+      / <a href="{{ child.url }}">{{ child.name }}</a>
+      {% include 'partials/nav/children.html' with { 'page' : child } %}
+  {% endfor %}
+</span>

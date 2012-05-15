@@ -1,0 +1,15 @@
+{% include 'partials/header.html' %}
+    {% include 'partials/title_bar.html' %}
+    <div class="container">
+      <div id="content" class="span-16 last">
+        <p>Category page</p>
+        {% if page.children %}
+          <h1>this is big news!</h1>
+        {% else %}
+          <h6>this isn't big news</h6>
+        {% endif %}
+        @page_name
+      </div>
+      <hr>
+    </div>
+{% include 'partials/footer.html' %}

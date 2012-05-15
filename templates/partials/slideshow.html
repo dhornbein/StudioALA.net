@@ -1,0 +1,16 @@
+{% if page.images %}
+<div id="slideshowWrapper">
+	<div class="slideshowNav">
+		<div class="navLeft">&lt; Back</div>
+		<div class="navRight">Next &gt;</div>
+		<div class="navPager"></div>
+	</div>
+	<div id="slideshow">
+		{% for image in page.images %}
+		  <div class="image">
+		    <img src="{{ image.url }}" alt="{{ image.title }}">
+		  </div>
+		{% endfor %}
+	</div>
+</div>
+{% endif %}

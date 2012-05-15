@@ -1,0 +1,42 @@
+<script type="text/javascript">
+$(window).load(function(){
+
+	var viewHeight = $(window).height();
+	var viewWidth = $(window).width();
+	var negativeSpace = 0;
+
+	var slideshowHeight = viewHeight - negativeSpace;
+
+	$('#slideshow .image > img').each(function(){
+		var MaxWidth = viewWidth;
+		var MaxHeight = viewHeight;
+		// current image dimensions
+		var w = $(this).width();
+		var h = $(this).height();
+		 
+		var ratio = w / h;
+		w = MaxWidth;
+		h = Math.floor(MaxWidth / ratio);
+		 
+		if (h > MaxHeight)
+		{
+		    h = MaxHeight;
+		    w = Math.floor(MaxHeight * ratio);
+		}
+
+		$(this).width(w).height(h);
+	})
+
+    $('#slideshow').cycle({ 
+    	fit: true,
+    	width: viewWidth,
+    	height: slideshowHeight,
+		fx:     'fade', 
+		speed:  'fast', 
+		timeout: 0, 
+		next:   '.navRight', 
+		prev:   '.navLeft',
+		pager: '.navPager'
+	});
+});
+</script>

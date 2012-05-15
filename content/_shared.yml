@@ -1,4 +1,7 @@
-name: Ñame
-profession: Gräphic Designer
+site_title: Studio ALA
+sub_title: Clever sub title
 email: |
-  <hi@yourdomain.com>
+  <hello@studioala.net>
+jquery: true
+js_cycle: true
+google_analytics: 0

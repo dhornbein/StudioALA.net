@@ -1,0 +1,7 @@
+{% if page.children %}
+/
+    {% for child in page.children %}
+       / <a href="{{ child.url }}">{{ child.page_name }}</a>
+        {% include 'partials/nav/children.html' with { 'page' : child } %}
+    {% endfor %}
+{% endif %}
