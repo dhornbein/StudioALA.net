@@ -5,3 +5,4 @@ email: |
 jquery: true
 js_cycle: true
 google_analytics: 0
+bypass_cache: 1

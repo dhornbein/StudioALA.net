@@ -8,6 +8,9 @@
 		{% for image in featured %}
 		  <div class="image">
 		    <img src="{{ image.url }}" alt="{{ image.title }}">
+		    <div class="meta">
+		    	{{ image.name }}
+		    </div>
 		  </div>
 		{% endfor %}
 	{% else %}

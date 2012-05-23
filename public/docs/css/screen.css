@@ -330,7 +330,7 @@ body {}
 .slideshowNav .navLeft { left:0; }
 .slideshowNav .navRight { right:0; }
 
-.slideshowNav .navPager { position: absolute; bottom:-2em; height: 1.5em; text-align:center; width:100%; z-index:101; }
+.slideshowNav .navPager { position: absolute; bottom:-2em; height: 1.5em; text-align:left; width:100%; z-index:101; }
 
 .slideshowNav .navPager a,
 .slideshowNav .navPager a:link,
@@ -359,6 +359,7 @@ body {}
 #slideshow {  }
 #slideshow .image { text-align: center; width:100% !important; }
 #slideshow .image img { height: inherit; }
+#slideshow .image .meta { color:#eee; text-align: right; }
 
 /* footer */
 

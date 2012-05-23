@@ -4,12 +4,17 @@
       <div class="container">
         <div id="projectTitle">
           <h4>
+            {#
             {% if page.category %}
               {% for category in page.category %}
               {% set slug = category|lower|replace({' ':'-'}) %}
                 <a href="{{ slug }}" id="{{ slug }}" class="project_category">{{ category }}</a>{% if not loop.last %} &mdash;{% endif %}
               {% endfor %}
             {% endif %}
+            #}
+            {% for key, parent in page.parent %}
+              <a href="{{ parent.url }}">{{ parent.page_name }}</a>
+            {% endfor %}
           </h4>
           <h1>{{ page.name|default(page.page_name) }}, {{ page.stats.location }}</h1>
         </div>
@@ -36,10 +41,10 @@
             {% endfor %}
           </div>
           <hr class="prepend-top">
-          <div id="projectImages">
+          <div id="projectImages" class="sidebar">
             {% for image in page.images %}
               <div class="image">
-                <img src="{{ image.url }}" alt="{{ image.title }}" width="310">
+                <a href="{{ image.large|default(image.url) }}" alt="expand image" target="_blank"><img src="{{ image.small|default(image.url) }}" alt="{{ image.title }}" width="310"></a>
                 <p>{{ image.name }}</p>
               </div>
             {% endfor %}
