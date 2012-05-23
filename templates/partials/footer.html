@@ -16,10 +16,20 @@
   {% else %}
   <!-- default script -->
 	<script type="text/javascript">
-		$('#slideshow').cycle({ 
-			fx:     'fade', 
-			speed:  'fast'`
-		});
+  $(window).load(function(){
+
+      $('#slideshow').cycle({ 
+        fit: true,
+        height: 400,
+      fx:     'fade', 
+      speed:  'fast', 
+      timeout: 0, 
+      next:   '.navRight', 
+      prev:   '.navLeft',
+      pager: '.navPager'
+    }).show();
+
+  });
 	</script>
   {% endif %}
 

@@ -1,7 +1,49 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
-    <div id="projectContent" class="span-12 shade clearfix">
-      {{ page.content }}
-    </div>
-    {% include 'partials/slideshow.html' %}
+    
+      <div class="container">
+        <div id="projectTitle">
+          <h4>
+            {% if page.category %}
+              {% for category in page.category %}
+              {% set slug = category|lower|replace({' ':'-'}) %}
+                <a href="{{ slug }}" id="{{ slug }}" class="project_category">{{ category }}</a>{% if not loop.last %} &mdash;{% endif %}
+              {% endfor %}
+            {% endif %}
+          </h4>
+          <h1>{{ page.name|default(page.page_name) }}, {{ page.stats.location }}</h1>
+        </div>
+      </div>
+      <div id="featured">
+          <div id="slideshowWrapper" class="container">
+            {% if page.children["1.featured"] %}
+              {% set featured = page.children["1.featured"].images  %}
+              {% include 'partials/slideshow.html' with featured %}
+            {% else %}
+              {% include 'partials/slideshow.html' %}
+            {% endif %}
+          </div>
+      </div>
+      <div class="container">
+        <div class="span-16 border">
+          <div id="projectDesc" class="large">{{ page.about }}</div>
+        </div>
+        <div class="span-8 last">
+          <div id="projectStats">
+            {% for key, value in page.stats %}
+              <div class="span-3 alignRight project_{{ key|lower|replace({' ':'_'}) }} projectStats_key"><strong>{{ key }}:</strong></div>
+              <div class="span-5 last projectStats_value">{{ value }}</div>
+            {% endfor %}
+          </div>
+          <hr class="prepend-top">
+          <div id="projectImages">
+            {% for image in page.images %}
+              <div class="image">
+                <img src="{{ image.url }}" alt="{{ image.title }}" width="310">
+                <p>{{ image.name }}</p>
+              </div>
+            {% endfor %}
+          </div>    
+        </div>
+      </div>
 {% include 'partials/footer.html' %}

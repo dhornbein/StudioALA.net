@@ -1,15 +1,23 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
     <div class="container">
-      <div id="content" class="span-16 last">
-        <p>Category page</p>
-        {% if page.children %}
-          <h1>this is big news!</h1>
-        {% else %}
-          <h6>this isn't big news</h6>
-        {% endif %}
-        @page_name
+      <div id="projectTitle">
+        <h1>{{ page.name|default(page.page_name) }}</h1>
       </div>
-      <hr>
+      <div id="featured">
+          <div id="slideshowWrapper" class="container">
+            {% set featured = ''  %}
+            {% for child in page.children %}
+              {% for img in child.children["1.featured"] %}
+                {% set featured = img.image|merge(featured) %}
+              {% endfor %}
+            {% endfor %}
+            {% if featured %}
+              {% include 'partials/slideshow.html' with featured %}
+            {% else %}
+              {% include 'partials/slideshow.html' %}
+            {% endif %}
+          </div>
+      </div>
     </div>
 {% include 'partials/footer.html' %}

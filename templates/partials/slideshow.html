@@ -1,16 +1,20 @@
-{% if page.images %}
-<div id="slideshowWrapper">
-	<div class="slideshowNav">
-		<div class="navLeft">&lt; Back</div>
-		<div class="navRight">Next &gt;</div>
-		<div class="navPager"></div>
-	</div>
-	<div id="slideshow">
+<div class="slideshowNav">
+	<div class="navLeft">&lt; Back</div>
+	<div class="navRight">Next &gt;</div>
+	<div class="navPager"></div>
+</div>
+<div id="slideshow" style="display:none;">
+	{% if featured %}
+		{% for image in featured %}
+		  <div class="image">
+		    <img src="{{ image.url }}" alt="{{ image.title }}">
+		  </div>
+		{% endfor %}
+	{% else %}
 		{% for image in page.images %}
 		  <div class="image">
 		    <img src="{{ image.url }}" alt="{{ image.title }}">
 		  </div>
 		{% endfor %}
-	</div>
+	{% endif %}
 </div>
-{% endif %}
