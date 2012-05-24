@@ -1,7 +1,11 @@
 {% if page.children %}
-/
+
     {% for child in page.children %}
-       / <a href="{{ child.url }}">{{ child.page_name }}</a>
-        {% include 'partials/nav/children.html' with { 'page' : child } %}
+	    {% if child.skip is not defined %}
+	       &gt; <a href="{{ child.url }}">{{ child.page_name }}</a>
+	       {% include 'partials/nav/children.html' with { 'page' : child } %}
+		{% endif %}
     {% endfor %}
+{% else %}
+|
 {% endif %}
