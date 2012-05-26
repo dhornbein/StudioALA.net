@@ -1,4 +1,4 @@
 {% for key, val in test %}
-{{ key }} : {{ val }} <br>
+({{ loop.index }}) {{ key }} : {{ val }} <br>
 	{% include 'partials/test.html' with { 'test' : val } %}
 {% endfor %}

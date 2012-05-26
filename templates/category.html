@@ -26,14 +26,6 @@
         </div>
     </div>
     <div class="container categoryList">
-      {% for child in page.children %}
-        <div class="childProject span-8{{ loop.index is divisibleby(3) ? ' last' : '' }}">
-          <a href="{{ child.permalink }}">
-            <h2 class="bottom">{{ child.name|default(child.page_name) }}</h2>
-            <img src="{{ child.thumb.url }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location }}">
-            <div class="childProjectStats">{{ child.stats.location }}</div>
-          </a>
-        </div>
-      {% endfor %}
+      {% include 'partials/projects/categories.html' with { 'columns': 3, 'recursive' : recursive|default(true) } %}
     </div>
 {% include 'partials/footer.html' %}
