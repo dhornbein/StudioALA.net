@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.name %}{{ page.name }} // {% endif %}{{ page.site_title }} / {{ page.sub_title }}</title>
+    <title>{{ page.name ? page.name : page.page_name }} / {{ page.site_title }} / {{ page.sub_title }}</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <link rel="alternate" type="application/atom+xml" href="{{ page.root_path }}/?/feed/">
     <link rel="stylesheet" href="{{ page.root_path }}/public/docs/css/screen.css" type="text/css" media="screen">

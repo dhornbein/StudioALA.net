@@ -1,5 +1,4 @@
 {% if page.children %}
-
     {% for child in page.children %}
 	    {% if child.skip is not defined %}
 	       &gt; <a href="{{ child.url }}">{{ child.page_name }}</a>

@@ -1,0 +1,33 @@
+{% include 'partials/header.html' %}
+    {% include 'partials/title_bar.html' %}
+    <div class="container">
+      <div id="title">
+        <h1 class="column colborder">{{ page.name|default(page.page_name) }}</h1>
+        <div class="span-16 last" id="about_text">{{ page.about_copy }} <a href="{{ page.root_path }}?/about/">Learn More</a></div>
+      </div>
+    </div>
+    <div id="featured">
+        <div id="slideshowWrapper" class="container">
+            {% include 'partials/slideshow.html' %}
+        </div>
+    </div>
+    <div class="container">
+      <div class="span-16 categoryList">
+        <h2 class="bottom">What we do</h2><hr>
+        {% for proj in page.root if proj.index == 2 %}
+          {% for child in proj.children %}
+            <div class="childProject span-8{{ loop.index is divisibleby(2) ? ' last' : '' }}">
+              <a href="{{ child.permalink }}">
+                <h2 class="bottom">{{ child.name|default(child.page_name) }}</h2>
+                <img src="{{ child.thumb.url }}" alt="{{ child.name|default(child.page_name) ~ ', ' ~ child.stats.location }}">
+                <div class="childProjectStats">{{ child.stats.location }}</div>
+              </a>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+      <div class="span-8 last sidebar">
+        <h2 class="bottom">Who we are</h2><hr>
+      </div>
+    </div>
+{% include 'partials/footer.html' %}

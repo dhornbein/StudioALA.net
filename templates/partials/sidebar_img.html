@@ -1,0 +1,13 @@
+{% for image in page.images %}
+  <div class="image">
+    <a href="{{ image.large|default(image.url) }}" alt="expand image" target="_blank">
+      <img class="fitBaseline" src="{{ image.small|default(image.url) }}" alt="{{ image.title }}" width="310">
+    </a>
+    <p class="titleCase">
+      {{ image.name }}
+      {% if image.description %}
+      <br><span class="small bottom">{{ image.description }}</span>
+      {% endif %}
+    </p>
+  </div>
+{% endfor %}

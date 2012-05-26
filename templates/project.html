@@ -31,7 +31,7 @@
       </div>
       <div class="container">
         <div class="span-16 border">
-          <div id="projectDesc" class="large">{{ page.about }}</div>
+          <div id="projectDesc" class="large">{{ page.html('about.html')|default(page.about) }}</div>
         </div>
         <div class="span-8 last">
           <div id="projectStats">
@@ -42,12 +42,7 @@
           </div>
           <hr class="prepend-top">
           <div id="projectImages" class="sidebar">
-            {% for image in page.images %}
-              <div class="image">
-                <a href="{{ image.large|default(image.url) }}" alt="expand image" target="_blank"><img src="{{ image.small|default(image.url) }}" alt="{{ image.title }}" width="310"></a>
-                <p>{{ image.name }}</p>
-              </div>
-            {% endfor %}
+            {% include 'partials/sidebar_img.html' %}
           </div>    
         </div>
       </div>

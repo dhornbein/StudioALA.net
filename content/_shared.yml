@@ -4,5 +4,6 @@ email: |
   <hello@studioala.net>
 jquery: true
 js_cycle: true
+js_default: true
 google_analytics: 0
 bypass_cache: 1

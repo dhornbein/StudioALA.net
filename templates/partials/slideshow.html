@@ -8,8 +8,8 @@
 		{% for image in featured %}
 		  <div class="image">
 		    <img src="{{ image.url }}" alt="{{ image.title }}">
-		    <div class="meta">
-		    	{{ image.name }}
+		    <div class="meta ">
+		    	<span class="titleCase">{{ image.name }}</span>
 		    </div>
 		  </div>
 		{% endfor %}
@@ -17,6 +17,9 @@
 		{% for image in page.images %}
 		  <div class="image">
 		    <img src="{{ image.url }}" alt="{{ image.title }}">
+		    <div class="meta ">
+		    	<span class="titleCase">{{ image.name }}</span>
+		    </div>
 		  </div>
 		{% endfor %}
 	{% endif %}
