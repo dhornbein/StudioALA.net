@@ -15,19 +15,19 @@
         {{ page.bodyCopy ? page.bodyCopy : page.html['body.html'].content }}
       </div>
       <div id="textSideBar" class="span-8 last">
-        {{ page.sideBarCopy ? page.sideBarCopy : page.html['sidebar.html'].content }}
-        {% if page.employee %}
-        <h2 class="bottom">Other Team Members</h2>
-        <hr>
-          {% for sibling in page.siblings if sibling.employee %}
-              {% include 'partials/employee_list.html' with {'employee':sibling} %}
+        <div id="whoWeAre">
+          <h3>Team Members</h3>
+          {% for employee in page.children if employee.employee %}
+            {% include 'partials/employee_list.html' with {'employee': employee } %}
           {% endfor %}
-        {% endif %}
+        </div>
+        {{ page.sideBarCopy ? page.sideBarCopy : page.html['sidebar.html'].content }}
+
         {% for img in page.images %}
           {% if not loop.first %}
           <div class="textSideBarImg fitBaseline">
             <img src="{{ img.url }}" alt="{{ img.title }}">
-            <p class="caption small bottom">{{ img.description }}</p>
+            <p class="caption small bottom">{{ img.name }}</p>
           </div>
           {% endif %}
         {% else %}

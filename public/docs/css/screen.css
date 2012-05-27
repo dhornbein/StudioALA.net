@@ -276,6 +276,7 @@ body {}
 
 .titleCase { text-transform: capitalize; }
 
+.alignCenter { text-align: center; }
 .alignRight { text-align: right; }
 
 .shade { background-color:rgba(0,0,0,.5); }

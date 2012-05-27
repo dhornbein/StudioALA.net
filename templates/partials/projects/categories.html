@@ -1,30 +1,32 @@
 {#
+@span - width of container column
 @columns - number of columns to fill up
 @recursive - search children
 #}
+{% set span = (span) ? span : 24 %}
+{% set columns = (columns) ? columns : 3 %}
+{% set recursive = (recursive) ? recursive : true %}
+
 {% for child in page.children %}
-<div class="project span-{{ 24 / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
+{% set class = (child.children_count > 1) ? ' category cat-' ~ child.slug : 'project' %}
+<div class="{{ class }} span-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
   <a href="{{ child.permalink }}">
     <h2 class="bottom">{{ child.name|default(child.page_name) }}</h2>
     <img src="{{ child.thumb.url }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location }}">
+    {% if child.stats.location %}
     <div class="projectMeta">{{ child.stats.location }}</div>
+    {% endif %}
   </a>
 
-	{% if child.children and recursive %}
-		{# build inital list, if empty set false #}
-		{% set list %}
-			{% for sub in child.children if not sub.skip %}
-					<li><a href="{{ sub.permalink }}">{{ sub.name|default(sub.page_name) }}, {{ sub.stats.location }}</a></li>
-			{% endfor %}
-		{% endset %}
+  {% if child.children and recursive %}
+    {# build inital list #}
+    {%- set list -%}{% for sub in child.children if not sub.skip %}<li class="{{ class }}-sub {{ class }}-sub-{{ loop.index }}"><a href="{{ sub.permalink }}">{{ sub.name|default(sub.page_name) }}, {{ sub.stats.location }}</a></li>{% else %}{% endfor %}{% endset %}
 
-		{# print list #}
-		{% if list is not empty %}
-		<ul class="projectChild">
-			{{ list }}
-		</ul>
-		{% endif %}
-	{% endif %}
+    {# print list #}
+    {% if list != '' %}
+    <ul class="projectChild">{{ list }}</ul>
+    {% endif %}
+  {% endif %}
 
 </div>
 {% endfor %}

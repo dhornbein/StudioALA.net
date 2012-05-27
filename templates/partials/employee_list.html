@@ -1,0 +1,5 @@
+<div class="employee">
+	<a class="large" href="{{ employee.permalink }}"><img class="column" src="{{ employee.thumb.url }}"> {{ employee.name|default(employee.page_name) }}</a>
+	<p>{{ employee.snippit }} <a href="{{ employee.permalink }}">Read More...</a></p>
+	<hr>
+</div>

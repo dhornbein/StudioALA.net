@@ -4,14 +4,6 @@
       <div class="container">
         <div id="projectTitle">
           <h4>
-            {#
-            {% if page.category %}
-              {% for category in page.category %}
-              {% set slug = category|lower|replace({' ':'-'}) %}
-                <a href="{{ slug }}" id="{{ slug }}" class="project_category">{{ category }}</a>{% if not loop.last %} &mdash;{% endif %}
-              {% endfor %}
-            {% endif %}
-            #}
             {% for key, parent in page.parent %}
               <a href="{{ parent.url }}">{{ parent.page_name }}</a>
             {% endfor %}
@@ -21,12 +13,12 @@
       </div>
       <div id="featured">
           <div id="slideshowWrapper" class="container">
-            {% if page.children["1.featured"] %}
-              {% set featured = page.children["1.featured"].images  %}
-              {% include 'partials/slideshow.html' with featured %}
-            {% else %}
-              {% include 'partials/slideshow.html' %}
-            {% endif %}
+            {% set slideshow = {
+              'allowed': ['html','images'],
+              'searchLocation': page.children['1.featured']
+              } 
+            %}
+            {% include 'partials/slideshow/slideshow.html' with slideshow %}
           </div>
       </div>
       <div class="container">
