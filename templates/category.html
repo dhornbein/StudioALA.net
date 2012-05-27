@@ -7,13 +7,10 @@
     </div>
     <div id="featured">
         <div id="slideshowWrapper" class="container">
-            {% set slideshow = {
-            } 
-            %}
             {% include 'partials/slideshow/slideshow_nav.html' %}
 
-            <div id="{{ slideshow.id[0]|default('slideshow') }}" style="display:none;">
-              {% include 'partials/slideshow/slideshow.html' with {'settings' : slideshow, 'page' : page } %}
+            <div id="{{ page.slideshow.id|default('slideshow') }}" class="slideshow" style="display:none;">
+              {% include 'partials/slideshow/slideshow.html' with {'page' : page } %}
             </div>
         </div>
     </div>

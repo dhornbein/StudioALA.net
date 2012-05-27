@@ -13,13 +13,10 @@
       </div>
       <div id="featured">
           <div id="slideshowWrapper" class="container">
-            {% set slideshow = {
-            } 
-            %}
             {% include 'partials/slideshow/slideshow_nav.html' %}
 
-            <div id="{{ slideshow.id[0]|default('slideshow') }}" style="display:none;">
-              {% include 'partials/slideshow/slideshow.html' with {'settings' : slideshow } %}
+            <div id="{{ page.slideshow.id|default('slideshow') }}" class="slideshow" style="display:none;">
+              {% include 'partials/slideshow/slideshow.html' %}
             </div>
           </div>
       </div>
@@ -30,8 +27,8 @@
         <div class="span-8 last">
           <div id="projectStats">
             {% for key, value in page.stats %}
-              <div class="span-3 alignRight project_{{ key|lower|replace({' ':'_'}) }} projectStats_key"><strong>{{ key }}:</strong></div>
-              <div class="span-5 last projectStats_value">{{ value }}</div>
+              <div class="span-3 alignRight project_{{ key|lower|replace({' ':'_'}) }} projectStats_key"><h3 class="bold">{{ key }}:</h3></div>
+              <div class="span-5 last projectStats_value"><h3>{{ value }}</h3></div>
             {% endfor %}
           </div>
           <hr class="prepend-top">

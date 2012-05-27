@@ -299,12 +299,10 @@ body {}
 
 /* project page */
 
-#projectContent {  }
-#projectContent p {  }
-
-#featured { background-color:#444; min-height: 400px; margin-bottom:1.5em; padding: 2em 0; }
 
 /* slideshow */
+
+#featured { background-color:#444; min-height: 400px; margin-bottom:1.5em; padding: 2em 0; }
 
 #slideshowWrapper { position: relative; }
 
@@ -361,10 +359,11 @@ body {}
 }
 
 
-#slideshow {  }
-#slideshow .image { text-align: center; width:100% !important; }
-#slideshow .image img { height: inherit; }
-#slideshow .image .meta { color:#eee; text-align: right; }
+.slideshow {  }
+.slideshow .frame { background-color: #444; }
+.slideshow .image { text-align: center; width:100% !important; }
+.slideshow .image img { height: inherit; }
+.slideshow .image .meta { color:#eee; text-align: right; }
 
 /* footer */
 
