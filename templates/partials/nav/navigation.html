@@ -1,6 +1,8 @@
-<span id="nav" class="inlineList">
+<ul id="nav" class="container">
   {% for child in page.root %}
-      <a href="{{ child.url }}">{{ child.page_name }}</a>
-      {% include 'partials/nav/children.html' with { 'page' : child } %}
+      <li id="{{ child.slug }}" class="{{ child.is_current ? 'current ' : '' }}navChild navChildTop item-{{ loop.index }}{{ loop.last ? ' last' : '' }}">
+      	<a href="{{ child.url }}" class="{{ child.is_current ? 'active' : '' }}">{{ child.page_name }}</a>
+      {% include 'partials/nav/children.html' with { 'page' : child, 'parent' : loop.index, 'level' : 1 } %}
+      </li>
   {% endfor %}
-</span>
+</ul>
