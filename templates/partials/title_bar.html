@@ -1,4 +1,6 @@
-<div id="titleBar">
-	<a class="logo" href="{{ page.root_path }}">{{ page.site_title }}</a> &mdash;
+<div id="titleBar" class="clearfix">
+	<div class="column">
+		<a class="logo" href="{{ page.root_path }}">{{ page.site_title }}</a>
+	</div>
 	{% include 'partials/nav/navigation.html' %}
 </div>
