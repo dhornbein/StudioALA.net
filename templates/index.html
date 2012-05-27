@@ -8,19 +8,20 @@
     </div>
     <div id="featured">
         <div id="slideshowWrapper" class="container">
-            {% include 'partials/slideshow.html' %}
+            {% include 'partials/slideshow/slideshow_nav.html' %}
+
+            <div id="{{ page.slideshow.id|default('slideshow') }}" style="display:none;">
+            {% for child in page.root if child.index == 2 %}
+              {% include 'partials/slideshow/slideshow.html' with { 'page' : child } %}
+            {% endfor %}
+            </div>
         </div>
     </div>
     <div class="container">
       <div class="span-16 colborder categoryList">
         <h2 class="bottom">What we do</h2><hr>
-        {% for proj in page.root if proj.index == 2 %}
-            {% set slideshow = {
-              'deepSearch' : true,
-              'searchLocation': page.children['1.featured']
-              } 
-            %}
-            {% include 'partials/slideshow/slideshow.html' with slideshow %}
+        {% for child in page.root if child.index == 2 %}
+          {% include 'partials/projects/categories.html' with { 'span' : 16, 'columns': 2, 'recursive' : recursive, 'page' : child } %}
         {% endfor %}
       </div>
       <div class="span-7 last sidebar">

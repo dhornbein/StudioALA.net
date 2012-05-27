@@ -3,7 +3,7 @@ $(window).load(function(){
 	$('.fitBaseline').each(fitBaselineHieght);
 
 	//test for cycle
-	if(jQuery.isFunction(jQuery.fn.cycle)){
+	if(jQuery.isFunction(jQuery.fn.cycle) && $('#slideshow') ){
 		$('#slideshow').cycle({ 
 			fit: true,
 			height: 400,
