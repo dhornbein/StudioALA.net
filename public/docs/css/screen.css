@@ -293,28 +293,32 @@ body {}
 
 #titleBar { width:100%; z-index: 100; }
 
-#titleBar a,
-#titleBar a:link,
-#titleBar a:visited { color:#37A1CE; text-decoration:none; }
+#titleBar a {  }
 
 /* Navigation */
 
-#nav { height:4em; position: relative; padding:0; }
+#nav { height:18px; padding:0; }
 #nav ul { margin:0; padding:0; }
-#nav li { list-style:none; }
+#nav li { list-style:none; padding: 0 6px; }
 
-#nav .subNav { position: absolute; width: 100%; }
-#nav .navChild { float:left; }
+#nav li a { color:#37A1CE; display: block; text-decoration:none; }
+#nav .active { color:#eee; }
+#nav li a:hover { color:white; }
 
-#nav .current > .subNav,
-#nav ul:hover > .subNav { display:block; }
+#nav .subNav { position: absolute; left: 0; width: 160px }
+#nav .navChild {  }
 
-#nav .navChildTop {}
-#nav .lvl-1 { display: none; }
+#nav li:hover > ul { display:block; }
+
+#nav .navChildTop { background-color:#444; float: left; position:relative; }
+#nav .lvl-1 { background-color:#555; display: none; }
 	#nav .lvl-1 .navChildLvl-1 {}
-#nav .lvl-2 { display: none; }
+#nav .lvl-2 { background-color:#666; display: none;
+	left: 100%;
+  top: 0;
+}
 	#nav .lvl-2 .navChildLvl-2 {}
-#nav .lvl-3 { display: none; }
+#nav .lvl-3 { background-color:#777; display: none; }
 	#nav .lvl-3 .navChildLvl-3 {}
 
 /* project page */

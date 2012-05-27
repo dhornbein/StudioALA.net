@@ -1,4 +1,5 @@
-<ul id="nav" class="container">
+<ul id="nav">
+	<li id="home" class="navChild navChildTop"><a class="logo" href="{{ page.root_path }}">Home</a></li>
   {% for child in page.root %}
       <li id="{{ child.slug }}" class="{{ child.is_current ? 'current ' : '' }}navChild navChildTop item-{{ loop.index }}{{ loop.last ? ' last' : '' }}">
       	<a href="{{ child.url }}" class="{{ child.is_current ? 'active' : '' }}">{{ child.page_name }}</a>
