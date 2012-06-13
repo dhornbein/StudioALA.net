@@ -8,19 +8,37 @@
 {% set recursive = (recursive) ? recursive : true %}
 
 {% for child in page.children %}
-{% set class = (child.children_count > 1) ? ' category cat-' ~ child.slug : 'project' %}
-<div class="{{ class }} span-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
-  <a href="{{ child.permalink }}">
-    <h2 class="bottom">{{ child.name|default(child.page_name) }}</h2>
-    <img src="{{ child.thumb.url }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location }}">
+{% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
+<div class="project {{ class }} span-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
+  <a class="wrapper" href="{{ child.permalink }}">
+    <h3 class="title bottom">{{ child.name|default(child.page_name) }}</h3>
+    <div class="projectThumb" style="background-image:url('{{ child.thumb.url|default(child.image['1'].url) }}');">
+      <div class="projectHover">
+        <span>View {{ (child.children_count > 1) ? 'Projects' : 'Project'}}</span>
+        <hr>
+
+      </div>
+      <img src="{{ child.thumb.url|default(child.image['1'].url) }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location }}">
+    </div>
     {% if child.stats.location %}
-    <div class="projectMeta">{{ child.stats.location }}</div>
+    <div class="projectMeta">
+      {% for key, stat in child.stats %}
+          <div>{{ key }}: {{ stat }}</div>
+      {% endfor %}
+    </div>
     {% endif %}
   </a>
 
   {% if child.children and recursive %}
     {# build inital list #}
-    {%- set list -%}{% for sub in child.children if not sub.skip %}<li class="{{ class }}-sub {{ class }}-sub-{{ loop.index }}"><a href="{{ sub.permalink }}">{{ sub.name|default(sub.page_name) }}, {{ sub.stats.location }}</a></li>{% else %}{% endfor %}{% endset %}
+    {%- set list -%}{% spaceless %}
+      {% for sub in child.children if not sub.skip %}
+      <li class="{{ class }}-sub {{ class }}-sub-{{ loop.index }}">
+        <a href="{{ sub.permalink }}">{{ sub.name|default(sub.page_name) }}{{ sub.stats.location ? ', ' ~ sub.stats.location : '' }}</a>
+      </li>
+      {% else %}
+      {% endfor %}
+    {% endspaceless %}{% endset %}
 
     {# print list #}
     {% if list != '' %}
@@ -29,4 +47,5 @@
   {% endif %}
 
 </div>
+{{ loop.index is divisibleby(columns) ? '<hr>' : '' }}
 {% endfor %}

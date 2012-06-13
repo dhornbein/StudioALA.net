@@ -1,11 +1,11 @@
-{% set parent  = page %}
+{% set parent = page %}
 
 {% for child in page.children %}
 	{% if child.featured %}
 		{% for html in child.html if child.html %}
-				<div class="html parent_{{ parent.slug|default('none') }}">
-					{{ html.content }}
-				</div>
+			<div class="html parent_{{ parent.slug|default('none') }}">
+				{{ html.content }}
+			</div>
 		{% endfor %}
 		{% for image in child.images %}
 			<div class="image parent_{{ parent.slug|default('none') }}">

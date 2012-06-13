@@ -18,15 +18,15 @@
         </div>
     </div>
     <div class="container">
-      <div class="span-16 colborder categoryList">
-        <h2 class="bottom">What we do</h2><hr>
+      <div class="span-16 colborder projectsList">
+        <h2 class="bottom"><a href="{{ page.root_path }}?/projects/">What we do</a></h2><hr>
         {% for child in page.root if child.index == 2 %}
           {% include 'partials/projects/categories.html' with { 'span' : 16, 'columns': 2, 'recursive' : recursive, 'page' : child } %}
         {% endfor %}
       </div>
       <div class="span-7 last sidebar">
         <div id="whoWeAre">
-          <h2>Who We Are</h2>
+          <h2><a href="{{ page.root_path }}?/about/">Who We Are</a></h2>
           {% for about in page.root if about.index == 1 %}
             {% for employee in about.children if employee.employee %}
               {% include 'partials/employee_list.html' with {'employee': employee } %}

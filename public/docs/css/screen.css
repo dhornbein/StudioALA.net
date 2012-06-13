@@ -272,6 +272,8 @@ html { height:100%; }
 
 body {}
 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { text-decoration:none; }
+
 /* special */
 
 .titleCase { text-transform: capitalize; }
@@ -295,6 +297,25 @@ body {}
 
 #titleBar a {  }
 
+.breadCrumb {}
+.breadCrumb a {
+	background-color: #EEEEEE;
+  border: 1px solid #CCCCCC;
+  color:#444;
+  padding: 3px;
+  text-decoration:none; 
+}
+.breadCrumb a:hover { background-color: #BBB; color:#666; }
+
+.breadCrumb .bc-topParent,
+.breadCrumb .bc-parent { border-radius: 8px 0 0 0; }
+
+.breadCrumb .bc-topParent { background-color: #888; color:#EEE; }
+.breadCrumb .bc-parent { background-color: #777; color:#EEE; }
+.breadCrumb .bc-child {}
+.breadCrumb .bc-child.bc-active { background-color: #444; color:#EEE; }
+.breadCrumb .bc-child.last { border-radius: 0 8px 0 0; }
+
 /* Navigation */
 
 #nav { height:18px; padding:0; }
@@ -306,7 +327,7 @@ body {}
 #nav li a:hover { color:white; }
 
 #nav .subNav { position: absolute; left: 0; width: 160px }
-#nav .navChild {  }
+#nav .navChild { position: relative; }
 
 #nav li:hover > ul { display:block; }
 
@@ -323,6 +344,54 @@ body {}
 
 /* project page */
 
+.projectsList {}
+.projectsList .project {}
+
+.project .wrapper { text-decoration: none; }
+.project .wrapper .title {
+	background-color: #DDDDDD;
+  border-bottom: 1px solid #FFFFFF;
+  color: #444444;
+  padding: 9px;
+  position: absolute;
+  width: 292px;
+}
+
+.project .wrapper:hover .title {
+	color:#222;
+}
+
+.project .wrapper .projectThumb {
+	background-position:center bottom;
+	height: 198px;
+	padding-top: 3em;
+	overflow: hidden;
+}
+.project .wrapper .projectHover {
+	background-color: rgba(0, 0, 0, 0);
+	color:#FFF;
+	height: 300px;
+	padding: 0;
+	margin-top:-30px;
+	overflow: hidden;
+	text-align: center;
+	-webkit-transition: all 1s ease-out;
+	-moz-transition: all 1s ease-out;
+	-o-transition: all 1s ease-out;
+	-ms-transition: all 1s ease-ou;
+	transition: all 1s ease-out;
+}
+.project .wrapper:hover .projectHover { 
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 100px 75px;
+}
+.project .projectThumb img { display:none; }
+.project .projectMeta {}
+
+.project .projectChild {}
+.project .projectChild li {}
+.project .projectChild li a {}
+.project .projectChild li a:hover {}
 
 /* slideshow */
 
@@ -384,7 +453,7 @@ body {}
 
 
 .slideshow {  }
-.slideshow .frame { background-color: #444; }
+.slideshow .frame { background-color: #444; height: 100%; }
 .slideshow .image { text-align: center; width:100% !important; }
 .slideshow .image img { height: inherit; }
 .slideshow .image .meta { color:#eee; text-align: right; }

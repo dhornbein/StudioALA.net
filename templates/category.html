@@ -2,10 +2,11 @@
     {% include 'partials/title_bar.html' %}
     <div class="container">
       <div id="projectTitle">
+        {% include 'partials/bread_crumb.html' %}
         <h1>{{ page.name|default(page.page_name) }}</h1>
       </div>
     </div>
-    <div id="featured">
+    <div id="featured" class="hide">
         <div id="slideshowWrapper" class="container">
             {% include 'partials/slideshow/slideshow_nav.html' %}
 
@@ -14,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="container categoryList">
+    <div class="container projectsList">
       {% include 'partials/projects/categories.html' with { 'columns': 3, 'recursive' : recursive } %}
     </div>
 {% include 'partials/footer.html' %}

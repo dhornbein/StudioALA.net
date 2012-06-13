@@ -1,0 +1,15 @@
+<div class="breadCrumb append-bottom">
+	{% for parent in page.parent %}
+		{% for parent2 in parent.parent %}
+			<a class="bc-topParent" href="{{ parent2.url }}">{{ parent2.page_name }}</a>
+		{% endfor %}
+		<a class="bc-parent" href="{{ parent.url }}">{{ parent.page_name }}</a>
+		{% for child in parent.children %}
+			{% if page.page_name == child.page_name %}
+			<a class="bc-child bc-active{{ loop.last ? ' last' : '' }}" href="{{ child.url }}">{{ child.page_name }}</a>
+			{% else %}
+			<a class="bc-child{{ loop.last ? ' last' : '' }}" href="{{ child.url }}">{{ child.page_name }}</a>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+</div>

@@ -3,35 +3,35 @@
     
       <div class="container">
         <div id="projectTitle">
-          <h4>
-            {% for key, parent in page.parent %}
-              <a href="{{ parent.url }}">{{ parent.page_name }}</a>
-            {% endfor %}
-          </h4>
-          <h1>{{ page.name|default(page.page_name) }}, {{ page.stats.location }}</h1>
+          {% include 'partials/bread_crumb.html' %}
+          <h1>{{ page.name|default(page.page_name) }}{{ page.stats.location ? ', ' ~ page.stats.location : ''  }}</h1>
         </div>
       </div>
+      {% if page.children %}
       <div id="featured">
           <div id="slideshowWrapper" class="container">
             {% include 'partials/slideshow/slideshow_nav.html' %}
 
             <div id="{{ page.slideshow.id|default('slideshow') }}" class="slideshow" style="display:none;">
-              {% include 'partials/slideshow/slideshow.html' %}
+                {% include 'partials/slideshow/slideshow.html' with {'page' : page } %}
             </div>
           </div>
       </div>
+      {% endif %}
       <div class="container">
         <div class="span-16 border">
           <div id="projectDesc" class="large">{{ page.html('about.html')|default(page.about) }}</div>
         </div>
         <div class="span-8 last">
+          {% if page.stats %}
           <div id="projectStats">
-            {% for key, value in page.stats %}
+            {% for key, value in page.stats if value %}
               <div class="span-3 alignRight project_{{ key|lower|replace({' ':'_'}) }} projectStats_key"><h3 class="bold">{{ key }}:</h3></div>
               <div class="span-5 last projectStats_value"><h3>{{ value }}</h3></div>
             {% endfor %}
           </div>
           <hr class="prepend-top">
+          {% endif %}
           <div id="projectImages" class="sidebar">
             {% include 'partials/sidebar_img.html' %}
           </div>    

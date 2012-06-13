@@ -1,0 +1,14 @@
+{% set parent = page %}
+
+{% for child in page %}
+	{% for image in child.images %}
+		<div class="image parent_{{ parent.slug|default('none') }}">
+			<div class="frame">
+				<img src="{{ image.url }}" alt="{{ image.title }}">
+				<div class="meta hidden">
+					<span class="titleCase"><a href="{{ parent.permalink }}">{{ image.name }}</a></span>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endfor %}
