@@ -345,16 +345,16 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { text-decoration:none; }
 /* project page */
 
 .projectsList {}
-.projectsList .project {}
+.projectsList .project { position: relative; }
 
 .project .wrapper { text-decoration: none; }
+.project .wrapper .title .padding { padding: 9px; }
 .project .wrapper .title {
 	background-color: #DDDDDD;
   border-bottom: 1px solid #FFFFFF;
   color: #444444;
-  padding: 9px;
   position: absolute;
-  width: 292px;
+  width: 100%;
 }
 
 .project .wrapper:hover .title {
@@ -392,6 +392,29 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { text-decoration:none; }
 .project .projectChild li {}
 .project .projectChild li a {}
 .project .projectChild li a:hover {}
+
+#projectStats .projectStats_key { text-transform: capitalize; }
+
+/* project page */
+
+.projectsList {}
+.projectsList .project {}
+.project2 .title {
+	background-color: #DDDDDD;
+  border-bottom: 1px solid #FFFFFF;
+  color: #444444;
+  padding: 9px;
+}
+
+.project2 .projectThumb img {  }
+.project2 .projectMeta {}
+
+.project2 .projectChild {}
+.project2 .projectChild li {}
+.project2 .projectChild li a {}
+.project2 .projectChild li a:hover {}
+
+#projectStats .projectStats_key { text-transform: capitalize; }
 
 /* slideshow */
 

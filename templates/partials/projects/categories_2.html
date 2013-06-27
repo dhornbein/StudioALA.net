@@ -1,0 +1,23 @@
+{#
+@span - width of container column
+@columns - number of columns to fill up
+@recursive - search children
+#}
+{% set span = (span) ? span : 24 %}
+{% set columns = (columns) ? columns : 3 %}
+{% set recursive = (recursive) ? recursive : true %}
+
+{% for child in page.children %}
+{% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
+<div class="project2 {{ class }} span-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
+  
+    <h3 class="title bottom"><a href="{{ child.permalink }}">{{ child.name|default(child.page_name) }}</a></h3>
+    {% for sub in child.children %}
+    <div class="projectThumb span-{{ 24 / loop.length }} {% if loop.last %}last{% endif %}">
+      <a href="{{ sub.permalink }}"><img src="{{ sub.thumb.url|default(sub.image['1'].url) }}" alt="{{ sub.name|default(sub.page_name) ~ ' - ' ~ sub.stats.location }}"></a>
+    </div>
+    {% endfor %}
+
+</div>
+{{ loop.index is divisibleby(columns) ? '<hr>' : '' }}
+{% endfor %}

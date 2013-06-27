@@ -1,9 +1,10 @@
-name: Arjmand Home
+name: City Hall East / 911 Center
+geo: "675 Ponce de Leon Avenue, Atlanta Georgia"
 stats:
- location: "State College, Pennsylvania"
- client: "The Arjmands"
- cost: "$780,000 US"
- complete: 1993
+ location: "Atlanta Georgia"
+ client: "City of Atlanta"
+ cost: "$13.8 million US"
+ complete: 1996
 about: |
  Set in a cornfield, this 6500 sq ft home has the form of a traditional Central
  Pennsylvania farmhouse, but as one enters, the interior immediately expresses the
