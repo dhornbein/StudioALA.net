@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ page.name ? page.name : page.page_name }} / {{ page.site_title }} / {{ page.sub_title }}</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <link rel="alternate" type="application/atom+xml" href="{{ page.root_path }}/?/feed/">
-    <link rel="stylesheet" href="{{ page.root_path }}/public/docs/css/screen.css" type="text/css" media="screen">
-  </head>
-  <body id="{{ page.slug }}" class="{{ page.parent.slug }}"{% if page.background_color %} style="background-color:#{{ page.background_color }};"{% endif %}>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>{{ page.name ? page.name : page.page_name }} / {{ page.site_title }} / {{ page.sub_title }}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="alternate" type="application/atom+xml" href="{{ page.root_path }}/?/feed/">
+  <link rel="stylesheet" href="{{ page.root_path }}/public/assets/css/screen.css" type="text/css" media="screen">
+</head>
+<body id="{{ page.slug }}" class="{{ page.parent.slug }}"{% if page.background_color %} style="background-color:#{{ page.background_color }};"{% endif %}>

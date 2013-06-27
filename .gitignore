@@ -1,3 +1,4 @@
+.sass-cache
 .DS_Store
 app/_cache/pages/*
 !app/_cache/pages/.gitignore

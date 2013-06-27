@@ -1,6 +1,8 @@
-$(window).load(function(){
-
+$(document).ready(function() {
+   
 	$('.fitBaseline').each(fitBaselineHieght);
+
+	$('.m-project .title').fitText();
 
 	//test for cycle
 	if(jQuery.isFunction(jQuery.fn.cycle) && $('#slideshow') ){
@@ -15,6 +17,8 @@ $(window).load(function(){
 			pager: '.navPager'
 		}).show();
 	}
+
+
 });
 
 function fitBaselineHieght(){

@@ -1,8 +1,8 @@
 {% if page.children and not page.children['1.featured'] %}
-<ul class="subNav lvl-{{ level }}">
+<ul class="dropdown lvl-{{ level }}">
   {% for child in page.children %}
     {% if child.skip is not defined %}
-			<li id="{{ child.slug }}" class="{{ child.is_current ? 'current ' : '' }}navChild navChildLvl-{{ level }} item-{{ parent ~ '-' ~ loop.index }}{{ loop.last ? ' last' : '' }}{{ loop.first ? ' first' : '' }}">
+			<li id="{{ child.slug }}" class="{{ child.children_count and not child.children['1.featured'] ? 'has-dropdown ' : '' }}{{ child.is_current ? 'active ' : '' }}navChild navChildLvl-{{ level }} item-{{ parent ~ '-' ~ loop.index }}{{ loop.last ? ' last' : '' }}{{ loop.first ? ' first' : '' }}">
 				<a href="{{ child.url }}">{{ child.page_name }}</a>
 			{% include 'partials/nav/children.html' with { 'page' : child, 'parent' : parent ~ '-' ~ loop.index, 'level' : level + 1 } %}
 			</li>

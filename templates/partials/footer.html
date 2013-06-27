@@ -3,24 +3,21 @@
   <!-- scripts -->
   {% if page.jquery %}
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{{ page.root_path }}/public/docs/js/jquery-1.7.2.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{ page.root_path }}public/assets/js/jquery-2.0.2.min.js"><\/script>')</script>
   {% endif %}
 
   {% if page.js_cycle %}
-  <script type="text/javascript" src="{{ page.root_path }}/public/docs/js/jquery.cycle.full.js"></script>
-  <script type="text/javascript" src="{{ page.root_path }}/public/docs/js/jquery.imagefit-0.2.js"></script>
+  <script type="text/javascript" src="{{ page.root_path }}public/assets/js/jquery.cycle.full.js"></script>
   {% endif %}
 
-  {% if page.js %}
-    {% for js in page.js %}
-      <script type="text/javascript" src="{{ js.url }}"></script>
-    {% endfor %}
-  {% endif %}
+  <script type="text/javascript" src="{{ page.root_path }}public/assets/js/plugins/jquery.fittext.js"></script>
+  <script type="text/javascript" src="{{ page.root_path }}public/assets/js/foundation/foundation.js"></script>
+  <script type="text/javascript" src="{{ page.root_path }}public/assets/js/foundation/foundation.topbar.js"></script>
 
   {% if page.js_default %}
   <!-- default script -->
-  <script type="text/javascript" src="{{ page.root_path }}/public/docs/js/default_script.js"></script>
+  <script type="text/javascript" src="{{ page.root_path }}/public/assets/js/default_script.js"></script>
   {% endif %}
 
 

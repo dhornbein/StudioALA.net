@@ -1,0 +1,63 @@
+// Layout
+
+hr.space { border-color: transparent; }
+
+// Modules
+
+.m-project {
+	.title {
+	    margin: 0;
+	    padding: 0;
+	    position: absolute;
+	    text-align: center;
+	    top: 2em;
+	    width: 100%;
+	}
+	.projectThumb {
+		img { width: 100%; }
+	}
+	.projectChild {
+		display: none;
+	}
+}
+
+.m-projects-list {
+	border-bottom: 1px solid #DDD;
+	margin-bottom: 1.5em;
+	padding-bottom: 1.5em;
+	position: relative;
+	.column.title {
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		padding: 0 emCalc(16px) 1.5em;
+		h3 {
+			margin: 0;
+		}
+	}
+}
+
+// Theme
+
+.m-project {
+	.title {
+		background-color: rgba(0, 0, 0, 0.25);
+	    color: white;
+	    text-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+	}
+}
+
+// State
+
+.m-project a {
+	.title {
+	    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+		filter: alpha(opacity=85);
+		opacity: 0.85;
+	}
+	&:hover .title {
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		filter: alpha(opacity=100);
+		opacity: 1;
+	}
+}

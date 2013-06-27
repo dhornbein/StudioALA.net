@@ -1,12 +1,12 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
-    <div class="container">
+    <div class="row">
       <div id="projectTitle">
         <h1>{{ page.name|default(page.page_name) }}</h1>
       </div>
       <hr>
-      <div id="textBody" class="span-16">
-        <div class="span-8 last right prepend-1 alignRight fitBaseline">
+      <div id="textBody" class="large-6 column">
+        <div class="ast right prepend-1 alignRight fitBaseline">
           {% for img in page.images if loop.first %}
           <img class="block" src="{{ img.url }}" alt="{{ img.title }}">
           <p class="caption small bottom">{{ img.description }}</p>
@@ -14,7 +14,7 @@
         </div>
         {{ page.bodyCopy ? page.bodyCopy : page.html['body.html'].content }}
       </div>
-      <div id="textSideBar" class="span-8 last">
+      <div id="textSideBar" class="large-6 column">
         <div id="whoWeAre">
           <h3>Team Members</h3>
           {% for employee in page.children if employee.employee %}

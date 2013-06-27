@@ -1,38 +1,25 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
-    <div class="container">
-      <div id="title">
-        <h1 class="column colborder">{{ page.name|default(page.page_name) }}</h1>
-        <div class="span-16 last" id="about_text">{{ page.about_copy }} <a href="{{ page.root_path }}?/about/">Learn More</a></div>
+    
+    <div class="row">
+      <div class="large-4 column">
+        <h1>{{ page.meta.title|default(page.page_name) }}</h1>
+        <p class="lead">{{ page.meta.description }}</p>
+        <a href="{{ page.root_path }}?/about/" class="button small">About us</a> <a href="#projects" class="button small secondary">More...</a>
       </div>
+      <div class="large-8 column"><img src="http://placekitten.com/940/400" alt=""></div>
     </div>
-    <div id="featured">
-        <div id="slideshowWrapper" class="container">
-            {% include 'partials/slideshow/slideshow_nav.html' %}
+    
+    <hr class="space">
 
-            <div id="{{ page.slideshow.id|default('slideshow') }}" class="slideshow" style="display:none;">
-            {% for child in page.root if child.index == 2 %}
-              {% include 'partials/slideshow/slideshow.html' with { 'page' : child } %}
-            {% endfor %}
-            </div>
-        </div>
+    <div id="projects" class="row collapse">
+      {% for child in page.root if child.index == 2 %}
+        {% include 'partials/projects/categories.html' with { 'columns': 3, 'recursive' : recursive, 'page' : child } %}
+      {% endfor %}
     </div>
-    <div class="container">
-      <div class="span-16 colborder projectsList">
-        <h2 class="bottom"><a href="{{ page.root_path }}?/projects/">What we do</a></h2><hr>
-        {% for child in page.root if child.index == 2 %}
-          {% include 'partials/projects/categories.html' with { 'span' : 16, 'columns': 2, 'recursive' : recursive, 'page' : child } %}
-        {% endfor %}
-      </div>
-      <div class="span-7 last sidebar">
-        <div id="whoWeAre">
-          <h2><a href="{{ page.root_path }}?/about/">Who We Are</a></h2>
-          {% for about in page.root if about.index == 1 %}
-            {% for employee in about.children if employee.employee %}
-              {% include 'partials/employee_list.html' with {'employee': employee } %}
-            {% endfor %}
-          {% endfor %}
-        </div>
-      </div>
+
+    <div id="people" class="row">
+      <div class="large-4 column"><img src="{{ page.children['1.About'].children['1.George Hornbein'].images[0] }}" alt=""></div>
     </div>
+
 {% include 'partials/footer.html' %}

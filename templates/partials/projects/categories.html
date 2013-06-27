@@ -1,23 +1,18 @@
 {#
-@span - width of container column
+@span - width of container column (always 12)
 @columns - number of columns to fill up
 @recursive - search children
 #}
-{% set span = (span) ? span : 24 %}
+{% set span = (span) ? span : 12 %}
 {% set columns = (columns) ? columns : 3 %}
 {% set recursive = (recursive) ? recursive : true %}
 
 {% for child in page.children %}
 {% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
-<div class="project {{ class }} span-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
-  <a class="wrapper" href="{{ child.permalink }}">
-    <h3 class="title bottom"><div class="padding">{{ child.name|default(child.page_name) }}</div></h3>
-    <div class="projectThumb" style="background-image:url('{{ child.thumb.url|default(child.image['1'].url) }}');">
-      <div class="projectHover">
-        <span>View {{ (child.children_count > 1) ? 'Projects' : 'Project'}}</span>
-        <hr>
-
-      </div>
+<div class="m-project {{ class }} columns large-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
+  <a href="{{ child.permalink }}">
+    <h3 class="title">{{ child.name|default(child.page_name) }}</h3>
+    <div class="projectThumb">
       <img src="{{ child.thumb.url|default(child.image['1'].url) }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location }}">
     </div>
     {% if child.stats.location %}

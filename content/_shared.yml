@@ -7,3 +7,6 @@ js_cycle: true
 js_default: true
 google_analytics: 0
 bypass_cache: 1
+meta:
+ title: Studio ALA
+ description: "Studio ALA is an architectural design studio based in Atlanta, Georgia. We design built environments where the people who live or work in our buildings have a place that helps them realize their aspirations."
