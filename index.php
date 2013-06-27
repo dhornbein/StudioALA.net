@@ -1,12 +1,14 @@
 <?php
 
 # let people know if they are running an unsupported version of PHP
-if(phpversion() < 5.2) {
+if(phpversion() < 5.3) {
 
-  die('<h3>Stacey requires PHP/5.2 or higher.<br>You are currently running PHP/'.phpversion().'.</h3><p>You should contact your host to see if they can upgrade your version of PHP (as 5.2 is pretty standard these days).</p>');
+  die('<h3>Stacey requires PHP/5.3 or higher.<br>You are currently running PHP/'.phpversion().'.</h3><p>You should contact your host to see if they can upgrade your version of PHP.</p>');
 
 } else {
 
+  # require config
+  require_once './extensions/config.php';
   # require helpers class so we can use rglob
   require_once './app/helpers.inc.php';
   # require the yaml parser
@@ -18,7 +20,7 @@ if(phpversion() < 5.2) {
 
   # start the app
   new Stacey($_GET);
-  
+
 }
 
 ?>

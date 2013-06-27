@@ -1,9 +1,6 @@
 <?php
-
-if (file_exists('app/parsers/Twig/ExtensionInterface.php')) require_once 'app/parsers/Twig/ExtensionInterface.php';
-else require_once '../app/parsers/Twig/ExtensionInterface.php';
-if (file_exists('app/parsers/Twig/Extension.php')) require_once 'app/parsers/Twig/Extension.php';
-else require_once '../app/parsers/Twig/Extension.php';
+require_once Config::$app_folder.'/parsers/Twig/ExtensionInterface.php';
+require_once Config::$app_folder.'/parsers/Twig/Extension.php';
 
 class Stacey_Twig_Extension extends Twig_Extension {
 
@@ -17,13 +14,15 @@ class Stacey_Twig_Extension extends Twig_Extension {
     # custom twig filters
     return array(
       'absolute' => new Twig_Filter_Method($this, 'absolute'),
-      'context' => new Twig_Filter_Method($this, 'context')
+      'context' => new Twig_Filter_Method($this, 'context'),
+      'truncate' => new Twig_Filter_Method($this, 'truncate')
     );
   }
 
   public function getFunctions() {
     # custom Twig functions
     return array(
+      'search' => new Twig_Function_Method($this, 'search'),
       'sortbydate' => new Twig_Function_Method($this, 'sortbydate'),
       'sortby' => new Twig_Function_Method($this, 'sortby'),
       'debug' => new Twig_Function_Method($this, 'var_dumper'),
@@ -32,6 +31,36 @@ class Stacey_Twig_Extension extends Twig_Extension {
       'slice' => new Twig_Filter_Method($this, 'slice'),
       'resize_path' => new Twig_Filter_Method($this, 'resize_path'),
     );
+  }
+
+  #
+  #   search
+  #
+
+  public function search($search, $limit = false) {
+    $result = Cache::get_full_cache();
+
+    if (preg_match('/^\s*$/', $search)) return array();
+    $search = preg_replace(array('/\//', '/\s+/'), array('\/', '.+?'), $search);
+    // $search = preg_replace(array('/o/i', '/a/i'), array('(o|ø|ö)', '(a|æ|å|ä)'), $search);
+    $json = json_decode($result, true);
+
+    $results = array();
+    foreach ($json as $page) {
+      foreach ($page as $key => $value) {
+        if ($key == 'file_path' || $key == 'url' ) continue;
+        $clean_value = (is_string($value)) ? strip_tags($value) : '';
+        if (preg_match('/.{0,90}'.$search.'.{0,90}/i', $clean_value, $matches)) {
+          if (isset($matches[0])) {
+            $page['search_match'] = '...'.preg_replace('/('.$search.')/ui', '<mark>$1</mark>', $matches[0]).'...';
+            $results[] = $page;
+            if ($limit && count($results) >= $limit) return $results;
+            break;
+          }
+        }
+      }
+    }
+    return $results;
   }
 
   #
@@ -57,7 +86,7 @@ class Stacey_Twig_Extension extends Twig_Extension {
     # strip leading & trailing slashes from $url
     $url = preg_replace(array('/^\//', '/\/$/'), '', $url);
     # if the current url is passed, then we use it to build up a relative context
-    $url = $current_url.$url;
+    $url = preg_replace('/^\.\/\?/', '', $current_url).$url;
     # strip leading '../'s from the url if any exists
     $url = preg_replace('/^((\.+)*\/)*/', '', $url);
     # turn route into file path
@@ -71,10 +100,12 @@ class Stacey_Twig_Extension extends Twig_Extension {
   #
   # shortcut to generate the image resize path from a full image path
   #
-  function resize_path($img_path, $max_width = '100', $max_height = '100', $ratio = '1:1', $quality = 100) {
+  function resize_path($img_path, $max_width = '100', $max_height = '100', $ratio = '1:1', $quality = '100') {
+
+    $root_path = preg_replace('/content\/.*/', '', $img_path);
     $clean_path = preg_replace('/^(\.+\/)*content/', '', $img_path);
-    $root_path = Helpers::relative_root_path();
-    if(!file_exists('.htaccess')) {
+
+    if(!file_exists(Config::$root_folder.'.htaccess')) {
       return $root_path.'app/parsers/slir/index.php?w='.$max_width.'&h='.$max_height.'&c='.$ratio.'&q='.$quality.'&i='.$clean_path;
     } else {
       return $root_path.'render/w'.$max_width.'-h'.$max_height.'-c'.$ratio.'-q'.$quality.$clean_path;
@@ -135,7 +166,20 @@ class Stacey_Twig_Extension extends Twig_Extension {
   #
   function absolute($relative_path) {
     $server_name = (($_SERVER['HTTPS'] ? 'https://' : 'http://')).$_SERVER['HTTP_HOST'];
-    return $server_name.str_replace('/index.php', strstr($relative_path, '/content'), $_SERVER['SCRIPT_NAME']);
+    $relative_path = preg_replace(array('/^\/content/', '/^(\.+\/)*/'), '', $relative_path);
+    return $server_name.str_replace('/index.php', $relative_path, $_SERVER['SCRIPT_NAME']);
+  }
+
+  function truncate($value, $length = 30, $preserve = false, $separator = '...') {
+    if (strlen($value) > $length) {
+      if ($preserve) {
+        if (false !== ($breakpoint = strpos($value, ' ', $length))) {
+          $length = $breakpoint;
+        }
+      }
+      return substr($value, 0, $length) . $separator;
+    }
+    return $value;
   }
 
 }
