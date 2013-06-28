@@ -2,16 +2,19 @@
 
 hr.space { border-color: transparent; }
 
+.img-circle { border-radius: 500px; }
+
 // Modules
 
 .m-project {
 	.title {
-	    margin: 0;
+		margin: -2em 0 0;
 	    padding: 0;
 	    position: absolute;
 	    text-align: center;
-	    top: 2em;
+	    top: 50%;
 	    width: 100%;
+	    text-transform: uppercase;
 	}
 	.projectThumb {
 		img { width: 100%; }
@@ -37,7 +40,21 @@ hr.space { border-color: transparent; }
 	}
 }
 
+.m-consultants {
+	.info {
+		font-size: 80%;
+		.profile {
+			text-align: justify;
+		}
+	}
+}
+
 // Theme
+
+.top-bar-section .dropdown {
+	border-left: 1px solid $topbar-link-bg-hover;
+	border-bottom: 1px solid $topbar-link-bg-hover;
+}
 
 .m-project {
 	.title {

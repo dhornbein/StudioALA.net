@@ -2,7 +2,7 @@ $(document).ready(function() {
    
 	$('.fitBaseline').each(fitBaselineHieght);
 
-	$('.m-project .title').fitText();
+	$('.fit').fitText();
 
 	//test for cycle
 	if(jQuery.isFunction(jQuery.fn.cycle) && $('#slideshow') ){
@@ -20,6 +20,8 @@ $(document).ready(function() {
 
 
 });
+
+var drew_json = $.getJSON('http://studioala.lcl/?/json/');
 
 function fitBaselineHieght(){
 	var targetCss = 'margin';

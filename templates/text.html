@@ -1,5 +1,12 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
+    {% for con in page.consultants %}
+      {{ con.name }} <br>
+      {{ con.firm }} <br>
+      {{ con.title }} <br>
+      {{ con.profile }}
+    {% endfor %}
+    <hr>
     <div class="container">
       <div id="projectTitle">
         {% include 'partials/bread_crumb.html' %}

@@ -1,0 +1,46 @@
+"images": [
+        {% for image in page.images %}
+          { 
+            "url": "{{ image.url }}", 
+            "name": "{{ image.name }}",
+            "file_name": "{{ image.file_name }}",
+            "width": "{{ image.width }}",
+            "height": "{{ image.height }}",
+            "small": "{{ image.small }}",
+            "large": "{{ image.large }}",
+            "title": "{{ image.title }}",
+            "description": "{{ image.description }}",
+            "keywords": "{{ image.keywords }}"
+          },
+        {% endfor %}
+      ],
+      "video": [
+        {% for video in page.video %}
+          { 
+            "url": "{{ video.url }}", 
+            "name": "{{ video.name }}",
+            "file_name": "{{ video.file_name }}",
+            "width": "{{ video.width }}",
+            "height": "{{ video.height }}"
+          },
+        {% endfor %}
+      ],
+      "html": [
+        {% for video in page.video %}
+          { 
+            "url": "{{ video.url }}", 
+            "name": "{{ video.name }}",
+            "file_name": "{{ video.file_name }}",
+            "content": "{{ video.content }}"
+          },
+        {% endfor %}
+      ],
+      "files": [
+        {% for files in page.files %}
+          { 
+            "url": "{{ files.url }}", 
+            "name": "{{ files.name }}",
+            "file_name": "{{ image.file_name }}"       
+          },
+        {% endfor %}
+      ]

@@ -4613,13 +4613,17 @@ a.th {
 hr.space {
   border-color: transparent; }
 
+.img-circle {
+  border-radius: 500px; }
+
 .m-project .title {
-  margin: 0;
+  margin: -2em 0 0;
   padding: 0;
   position: absolute;
   text-align: center;
-  top: 2em;
-  width: 100%; }
+  top: 50%;
+  width: 100%;
+  text-transform: uppercase; }
 .m-project .projectThumb img {
   width: 100%; }
 .m-project .projectChild {
@@ -4637,6 +4641,15 @@ hr.space {
     padding: 0 1em 1.5em; }
     .m-projects-list .column.title h3 {
       margin: 0; }
+
+.m-consultants .info {
+  font-size: 80%; }
+  .m-consultants .info .profile {
+    text-align: justify; }
+
+.top-bar-section .dropdown {
+  border-left: 1px solid #f7f7f7;
+  border-bottom: 1px solid #f7f7f7; }
 
 .m-project .title {
   background-color: rgba(0, 0, 0, 0.25);

@@ -1,6 +1,6 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
-    
+
     <div class="row">
       <div class="large-4 column">
         <h1>{{ page.meta.title|default(page.page_name) }}</h1>
@@ -18,8 +18,91 @@
       {% endfor %}
     </div>
 
+    <hr class="space">
+
     <div id="people" class="row">
-      <div class="large-4 column"><img src="{{ page.children['1.About'].children['1.George Hornbein'].images[0] }}" alt=""></div>
+      <div class="large-3 column text-center"><img src="./content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></div>
+      <div class="large-9 column">
+        <h1>George Hornbein</h1>
+        <p class="lead">Is a founding partner of Studio ALA, LLC. He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years,    many of which have incorporated sustainable design features.</p>
+      </div>
+    </div>
+
+    <hr class="space">
+
+    <h3 class="text-center">The Consultants</h3>
+    <div id="consultant" class="m-consultants">
+      <div class="row">
+        <div class="large-2 large-offset-2 columns">
+          <img src="http://flickholdr.com/400/400/face,smile" alt="" class="profile img-circle">
+          <hr>
+          <div class="info">
+            <h2 class="name fit text-center">Consultant Name</h2>
+            <h6 class="firm text-center">Louah Design Group, Inc.</h6>
+            <h4 class="title text-center">Mechanical, Electrical, Plumbing Engineering</h4>
+            <hr>
+            <p class="profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, laborum, tempora non sint similique amet fuga modi magnam? Est, perferendis, praesentium pariatur doloremque nam sed? Suscipit accusamus alias quaerat neque!</p>
+          </div>
+        </div>
+        <div class="large-2 large-offset-1 columns">
+          <img src="http://flickholdr.com/400/400/face" alt="" class="profile img-circle">
+          <hr>
+          <div class="info">
+            <h2 class="name fit text-center">Consultant Name</h2>
+            <h6 class="firm text-center">Louah Design Group, Inc.</h6>
+            <h4 class="title text-center">Mechanical, Electrical, Plumbing Engineering</h4>
+            <hr>
+            <p class="profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, laborum, tempora non sint similique amet fuga modi magnam? Est, perferendis, praesentium pariatur doloremque nam sed? Suscipit accusamus alias quaerat neque!</p>
+          </div>
+        </div>
+        <div class="large-2 large-offset-1 columns end">
+          <img src="http://flickholdr.com/400/400/face,woman" alt="" class="profile img-circle">
+          <hr>
+          <div class="info">
+            <h2 class="name fit text-center">Consultant Name</h2>
+            <h6 class="firm text-center">Louah Design Group, Inc.</h6>
+            <h4 class="title text-center">Mechanical, Electrical, Plumbing Engineering</h4>
+            <hr>
+            <p class="profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, laborum, tempora non sint similique amet fuga modi magnam? Est, perferendis, praesentium pariatur doloremque nam sed? Suscipit accusamus alias quaerat neque!</p>
+          </div>
+        </div>
+      </div>
+      <hr class="space">
+      <div class="row">
+        <div class="large-2 large-offset-2 columns">
+          <img src="http://flickholdr.com/400/400/face,Engineering" alt="" class="profile img-circle">
+          <hr>
+          <div class="info">
+            <h2 class="name fit text-center">Consultant Name</h2>
+            <h6 class="firm text-center">Louah Design Group, Inc.</h6>
+            <h4 class="title text-center">Mechanical, Electrical, Plumbing Engineering</h4>
+            <hr>
+            <p class="profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, laborum, tempora non sint similique amet fuga modi magnam? Est, perferendis, praesentium pariatur doloremque nam sed? Suscipit accusamus alias quaerat neque!</p>
+          </div>
+        </div>
+        <div class="large-2 large-offset-1 columns">
+          <img src="http://flickholdr.com/400/400/portrait" alt="" class="profile img-circle">
+          <hr>
+          <div class="info">
+            <h2 class="name fit text-center">Consultant Name</h2>
+            <h6 class="firm text-center">Louah Design Group, Inc.</h6>
+            <h4 class="title text-center">Mechanical, Electrical, Plumbing Engineering</h4>
+            <hr>
+            <p class="profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, laborum, tempora non sint similique amet fuga modi magnam? Est, perferendis, praesentium pariatur doloremque nam sed? Suscipit accusamus alias quaerat neque!</p>
+          </div>
+        </div>
+        <div class="large-2 large-offset-1 columns end">
+          <img src="http://flickholdr.com/400/400/face,Designer" alt="" class="profile img-circle">
+          <hr>
+          <div class="info">
+            <h2 class="name fit text-center">Consultant Name</h2>
+            <h6 class="firm text-center">Louah Design Group, Inc.</h6>
+            <h4 class="title text-center">Mechanical, Electrical, Plumbing Engineering</h4>
+            <hr>
+            <p class="profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, laborum, tempora non sint similique amet fuga modi magnam? Est, perferendis, praesentium pariatur doloremque nam sed? Suscipit accusamus alias quaerat neque!</p>
+          </div>
+        </div>
+      </div>
     </div>
 
 {% include 'partials/footer.html' %}

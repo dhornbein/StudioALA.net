@@ -1,0 +1,8 @@
+      "page_name": "{{ page.page_name }}",
+      "index": "{{ page.index }}",
+      "thumb": "{{ page.thumb.url }}",
+      "url": "{{ page.url }}",
+      "updated": "{{ page.updated }}",
+      "content": "{{ page.content }}",
+      "permalink": "{{ page.permalink }}",
+      "slug": "{{ page.slug }}"

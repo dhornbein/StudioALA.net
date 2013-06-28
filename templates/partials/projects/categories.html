@@ -11,7 +11,7 @@
 {% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
 <div class="m-project {{ class }} columns large-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
   <a href="{{ child.permalink }}">
-    <h3 class="title">{{ child.name|default(child.page_name) }}</h3>
+    <h3 class="title fit">{{ child.name|default(child.page_name) }}</h3>
     <div class="projectThumb">
       <img src="{{ child.thumb.url|default(child.image['1'].url) }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location }}">
     </div>
