@@ -10,3 +10,4 @@ app/_cache/images/*
 logs
 htaccess
 .htaccess
+public/assets/css/screen.css
