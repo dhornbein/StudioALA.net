@@ -4616,18 +4616,25 @@ hr.space {
 .img-circle {
   border-radius: 500px; }
 
-.m-project .title {
-  margin: -2em 0 0;
-  padding: 0;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  width: 100%;
-  text-transform: uppercase; }
-.m-project .projectThumb img {
-  width: 100%; }
-.m-project .projectChild {
-  display: none; }
+.m-project {
+  overflow: hidden; }
+  .m-project .title {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    text-transform: uppercase;
+    -webkit-transition: font-size 600ms ease-in;
+    -moz-transition: font-size 600ms ease-in;
+    -o-transition: font-size 600ms ease-in;
+    -ms-transition: font-size 600ms ease-in;
+    transition: font-size 600ms ease-in; }
+  .m-project .projectThumb img {
+    width: 100%; }
+  .m-project .projectChild {
+    display: none; }
 
 .m-projects-list {
   border-bottom: 1px solid #DDD;

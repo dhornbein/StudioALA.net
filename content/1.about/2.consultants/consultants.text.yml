@@ -1,32 +1,49 @@
 js_cycle: 0
 consultants:
  -
-  name: Li Qi, RLA, Partner
+  name: Li Qi
+  position: RLA, Partner
   firm: Newspace Design, Inc.
   title: Landscape Architect, Urban Planner
-  profile:  ????
+  profile: |
+   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+   tempor  dolor in reprehenderit in voluptate velit esse
+   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
  -
-  name: Baku Patel, PE, LEED AP, Managing Partner
+  name: Baku Patel
+  position: PE, LEED AP, Managing Partner
   firm: Palmer Engineering, Inc.
   title: Structural Enginer
-  profile:  ????
+  profile: |
+   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+   quis nostrud exercitation ullamco nt mollit anim id est laborum.
  -
-  name: Moufdi Louah, PE, LEED AP, Principal
+  name: Moufdi Louah
+  position: PE, LEED AP, Principal
   firm: Louah Design Group, Inc.
   title: Mechanical, Electrical, Plumbing Engineering
-  profile:  ????
+  profile: |
+   Lorem ipsum dolor  ullamco laboris nisi ut aliquip ex ea commodo
+   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
  -
-  name: Pat Harris, N????, Principal
+  name: Pat Harris
+  position: N????, Principal
   firm: Harris Interior Design, Inc
   title: Interior Designer
-  profile:  ????
+  profile: |
+   Lorem ipsum dolor siure dolor in reprehenderit in voluptate velit esse
+   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
  -
-  name: Solomon Williams, Owner
+  name: Solomon Williams
+  position: Owner
   firm: S.A. Williams, Inc.
   title: Construction Cost Estimator
-  profile:  ????
- -
-  name: George Hornbein, RA, Managing Partner
-  firm: Studio ALA, LLC
-  title: Architect
-  profile:  ????
+  profile: |
+   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+   tempor incididunt ut lalla pariatur. Excepteur sint occaecat cupidatat non
+   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

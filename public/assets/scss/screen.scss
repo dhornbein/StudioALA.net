@@ -7,14 +7,20 @@ hr.space { border-color: transparent; }
 // Modules
 
 .m-project {
+	overflow: hidden;
 	.title {
-		margin: -2em 0 0;
-	    padding: 0;
-	    position: absolute;
-	    text-align: center;
-	    top: 50%;
-	    width: 100%;
-	    text-transform: uppercase;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		width: 100%;
+		text-transform: uppercase;
+		-webkit-transition:font-size 600ms ease-in;
+		   -moz-transition:font-size 600ms ease-in;
+		     -o-transition:font-size 600ms ease-in;
+		    -ms-transition:font-size 600ms ease-in;
+		        transition:font-size 600ms ease-in;
 	}
 	.projectThumb {
 		img { width: 100%; }

@@ -1,5 +1,6 @@
-site_title: Studio ALA
-sub_title: Clever sub title
+site:
+ title: Studio ALA
+ subtitle: Clever sub title
 email: |
   <hello@studioala.net>
 jquery: true

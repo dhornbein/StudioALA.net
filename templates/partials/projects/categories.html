@@ -5,42 +5,49 @@
 #}
 {% set span = (span) ? span : 12 %}
 {% set columns = (columns) ? columns : 3 %}
-{% set recursive = (recursive) ? recursive : true %}
+{% set depth = (depth) ? depth : 0 %}
+{% set row_class = 'row collapse' %}
 
+<div class="{{ row_class }}">
 {% for child in page.children %}
-{% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
-<div class="m-project {{ class }} columns large-{{ span / columns }}{{ loop.index is divisibleby(columns) ? ' last' : '' }}">
-  <a href="{{ child.permalink }}">
-    <h3 class="title fit">{{ child.name|default(child.page_name) }}</h3>
-    <div class="projectThumb">
-      <img src="{{ child.thumb.url|default(child.image['1'].url) }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location }}">
-    </div>
-    {% if child.stats.location %}
-    <div class="projectMeta">
-      {% for key, stat in child.stats %}
-          <div>{{ key }}: {{ stat }}</div>
-      {% endfor %}
-    </div>
-    {% endif %}
-  </a>
+  {% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
 
-  {% if child.children and recursive %}
-    {# build inital list #}
-    {%- set list -%}{% spaceless %}
-      {% for sub in child.children if not sub.skip %}
-      <li class="{{ class }}-sub {{ class }}-sub-{{ loop.index }}">
-        <a href="{{ sub.permalink }}">{{ sub.name|default(sub.page_name) }}{{ sub.stats.location ? ', ' ~ sub.stats.location : '' }}</a>
-      </li>
-      {% else %}
-      {% endfor %}
-    {% endspaceless %}{% endset %}
 
-    {# print list #}
-    {% if list != '' %}
-    <ul class="projectChild">{{ list }}</ul>
-    {% endif %}
+  {% if loop.length > columns and ((loop.length // columns) * columns) >= loop.index  %}
+    {% set column_class = span // columns ~ ' 3'  %}
+  {% elseif loop.length > columns %}
+    {% set column_class = span // (loop.length - ((loop.length // columns) * columns)) ~ ' 2' %}
+  {% else %}
+    {% set column_class = span // loop.length ~ ' 1' %}
   {% endif %}
 
+  <div class="m-project {{ class }} columns large-{{ column_class }}{{ loop.index is divisibleby(columns) ? ' end' : '' }}">
+    <a href="{{ child.permalink }}">
+      <div class="title">{{ child.name|default(child.page_name) }}</div>
+      <div class="projectThumb">
+        <img src="{{ child.images['featured.jpg'].url|default(child.thumb.url) }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location|default(page.site.title) }}">
+      </div>
+      {% if child.stats.location %}
+      <div class="projectMeta">
+        {% for key, stat in child.stats %}
+            <div>{{ key }}: {{ stat }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </a>
+
+  {# pull children #}
+  {% if depth > 0 and child.children %}
+    {% include 'partials/projects/categories.html' with { 'columns': 3, 'depth' : depth - 1, 'page' : child } %}
+  {% endif %}
+
+  </div>
+
+{% if loop.index is divisibleby(columns) or loop.last %}
 </div>
-{{ loop.index is divisibleby(columns) ? '<hr>' : '' }}
+  {% if not loop.last %}
+<div class="{{ row_class }}">
+  {% endif %}
+{% endif %}
+
 {% endfor %}
