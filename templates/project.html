@@ -21,6 +21,9 @@
       <div class="container">
         <div class="span-16 border">
           <div id="projectDesc" class="large">{{ page.html('about.html')|default(page.about) }}</div>
+          {% if page.geo %}
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ page.geo|replace({' ': '+'}) }}&zoom=16&size=630x300&maptype=satellite&sensor=false" alt="{{ page.geo }}">
+          {% endif %}
         </div>
         <div class="span-8 last">
           {% if page.stats %}
