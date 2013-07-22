@@ -5,7 +5,10 @@
         <h1>{{ page.name|default(page.page_name) }}</h1>
       </div>
     </div>
-    <div id="projects" class="row collapse">
-      {% include 'partials/projects/categories.html' with { 'columns': page.columns|default(3), 'depth' : 3 } %}
+    <div id="projects">
+    	{% for child in page.children %}
+    		<h1>{{ child.name|default(child.page_name) }}</h1>
+			{% include 'partials/projects/project_list.html' with { 'columns': page.columns|default(3), 'page' : child } %}
+    	{% endfor %}
     </div>
 {% include 'partials/footer.html' %}
