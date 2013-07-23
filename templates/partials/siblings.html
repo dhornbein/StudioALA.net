@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="small-12 column">
+		<h2>Other {{ page.parent[0].name|default(page.parent[0].page_name) }}</h2>
+	</div>
+	<div class="small-6 column">
+		<div class="m-sibling-prev">
+			{% if page.previous_sibling[0] %}
+			<a href="{{ page.previous_sibling[0].permalink }}">
+				<img src="{{ page.previous_sibling[0].thumb.url }}" alt="{{ page.previous_sibling[0].name|default(page.previous_sibling[0].page_name) }}">
+				<div class="details">
+					<h4>{{ page.previous_sibling[0].name|default(page.previous_sibling[0].page_name) }}</h4>
+			{% else %}
+				{% for sibling in page.siblings|reverse if loop.first %}
+			<a href="{{ sibling.permalink }}">
+				<img src="{{ sibling.thumb.url }}" alt="{{ sibling.name|default(sibling.page_name) }}">
+				<div class="details">
+					<h4>{{ sibling.name|default(sibling.page_name) }}</h4>
+				{% endfor %}
+			{% endif %}
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="small-6 column">
+		<div class="m-sibling-next text-right">
+			{% if page.next_sibling[0] %}
+			<a href="{{ page.next_sibling[0].permalink }}">
+				<img src="{{ page.next_sibling[0].thumb.url }}" alt="{{ page.next_sibling[0].name|default(page.next_sibling[0].page_name) }}">
+				<div class="details">
+					<h4>{{ page.next_sibling[0].name|default(page.next_sibling[0].page_name) }}</h4>
+			{% else %}
+				{% for sibling in page.siblings if loop.first %}
+			<a href="{{ sibling.permalink }}">
+				<img src="{{ sibling.thumb.url }}" alt="{{ sibling.name|default(sibling.page_name) }}">
+				<div class="details">
+					<h4>{{ sibling.name|default(sibling.page_name) }}</h4>
+				{% endfor %}
+			{% endif %}
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

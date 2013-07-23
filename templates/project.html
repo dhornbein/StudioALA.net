@@ -1,44 +1,65 @@
 {% include 'partials/header.html' %}
   {% include 'partials/title_bar.html' %}
+  {% include 'partials/bread_crumb.html' %}
   <div class="wrapper">
     <div class="row">
-      <h1>{{ page.page_name }}</h1>
-      {% for img in page.images if loop.first %}
-      <img class="block" src="{{ img.url }}" alt="{{ img.name }}">
-      {% endfor %}
+      <div class="small-12 large-4 column">
+        <h1>{{ page.name|default(page.page_name) }}</h1>
+
+        {% if page.files['content.html'] %}
+        <div class="projectContent">{{ page.files['content.html'].content }}</div>
+        {% endif %}
+
+        {% if page.stats %}
+        <ul class="no-bullet">
+        {% for name, stat in page.stats %}
+          <li><strong>{{ name }}:</strong> {{ stat }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if page.awards %}
+        <h2>Awards</h2>
+        <ul>
+        {% for award in page.awards %}
+          <li>{{ award }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        
+      </div>
+      <div class="small-12 large-8 column">
+        <ul class="small-block-grid-{{ page.images|length }}">
+        {% for img in page.images %}
+        <li class="text-center">
+          <a href="#" data-reveal-id="slide_{{ loop.index }}"><img class="th" src="{{ img.small|default(img.url) }}" alt="{{ img.name }}"></a>
+        </li>
+        {% endfor %}
+        </ul>
+      </div>
     </div>
 
-    {% if page.files['content.md'] %}
-      <div class="row">
-        {{ page.files['content.md'].content }}
-      </div>
-    {% endif %}
-
-    {% if page.stats %}
-    <ul>
-    {% for name, stat in page.stats %}
-      <li>{{ name }}: {{ stat }}</li>
-    {% endfor %}
-    </ul>
-    {% endif %}
-
-    <h2>Awards</h2>
-    {% if page.awards %}
-    <ul>
-    {% for award in page.awards %}
-      <li>{{ award }}</li>
-    {% endfor %}
-    </ul>
-    {% endif %}
-    
-    {% for img in page.images %}
-        <div class="m-picture">
-          <div class="th">
-            <img src="{{ img.url }}" alt="{{ img.name }}">
-          </div>
-          <div>{{ img.name }}</div>
-        </div>
-    {% endfor %}
+    {% include 'partials/siblings.html' %}
 
   </div>
+
+  {% for img in page.images %}
+  <div id="slide_{{ loop.index }}" class="reveal-modal expand">
+    <nav class="slideShowNav">
+      {% if not loop.last %}
+      <div class="next" data-reveal-id="slide_{{ loop.index + 1 }}">Next</div>
+      {% else %}
+      <div class="next" data-reveal-id="slide_1">Next</div>
+      {% endif %}
+      {% if not loop.first %}
+      <div class="prev" data-reveal-id="slide_{{ loop.index - 1 }}">Prev</div>
+      {% else %}
+      <div class="prev" data-reveal-id="slide_{{ loop.length }}">Prev</div>
+      {% endif %}
+    </nav>
+    <img src="{{ img.url }}" alt="{{ img.name }}">
+    <p>{{ img.name }}</p>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+  {% endfor %}
 {% include 'partials/footer.html' %}

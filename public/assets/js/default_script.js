@@ -18,17 +18,4 @@ $(document).ready(function() {
 		}).show();
 	}
 
-
 });
-
-var drew_json = $.getJSON('http://studioala.lcl/?/json/');
-
-function fitBaselineHieght(){
-	var targetCss = 'margin';
-	var height = $(this).height();
-	var baseline = 18;
-	var desiredHeight = (Math.ceil(height / baseline)) * baseline;
-	var padding = desiredHeight - height;
-
-	$(this).css(targetCss + 'Bottom',padding);
-}
