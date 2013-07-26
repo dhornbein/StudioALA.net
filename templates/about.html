@@ -1,12 +1,9 @@
 {% include 'partials/header.html' %}
+  {% include 'partials/title_bar.html' %}
+  {% include 'partials/bread_crumb.html' %}
     <div class="row">
-      <div id="projectTitle" class="small-12 column">
+      <div class="small-6 column">
         <h1>{{ page.name|default(page.page_name) }}</h1>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div id="textBody" class="large-6 column">
         <div class="right">
           {% for img in page.images if loop.first %}
           <img class="block" src="{{ img.url }}" alt="{{ img.name }}">
@@ -15,25 +12,42 @@
         </div>
         {{ page.bodyCopy ? page.bodyCopy : page.html['body.html'].content }}
       </div>
-      <div id="textSideBar" class="large-6 column">
-        <div id="whoWeAre">
-          <h3>Team Members</h3>
-          {% for employee in page.children if employee.employee %}
-            {% include 'partials/employee_list.html' with {'employee': employee } %}
-          {% endfor %}
-        </div>
-        {{ page.sideBarCopy ? page.sideBarCopy : page.html['sidebar.html'].content }}
-      
-        {% for img in page.images %}
-          {% if not loop.first %}
-          <div class="textSideBarImg fitBaseline">
-            <img src="{{ img.url }}" alt="{{ img.title }}">
-            <p class="caption small bottom">{{ img.name }}</p>
+      <div class="large-6 column">
+        <h1>{{ page.subtitle }}</h1>
+        <div class="row">
+          <div class="small-3 column text-center"><img src="./content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></div>
+          <div class="small-9 column">
+            <h1>George Hornbein</h1>
+            <p class="lead">Is a founding partner of Studio ALA, LLC. He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years,    many of which have incorporated sustainable design features.</p>
           </div>
+        </div>
+        <div id="consultant" class="m-consultants">
+          <div class="row">
+          {% set people = get('/about/consultants') %}
+          {% for con in people.consultants %}
+              
+            {% set split = 3 %}
+            {% set col = (loop.index <= 2) ? 3 : 2 %}
+            {% set offset = "large-offset-3" %}
+          
+          {% if loop.index == split %}
+          </div>
+          <div class="row">
           {% endif %}
-        {% else %}
-        <hr>
-        {% endfor %}
+
+            <div class="large-{{ col }} {{ (loop.first or loop.index == split) ? offset : '' }} columns{{ loop.last or loop.index == split - 1 ? ' end' : '' }}">
+              <img src="http://flickholdr.com/400/400/face,smile" alt="" class="profile img-circle">
+              <hr>
+              <div class="info">
+                <h2 class="name fit text-center">{{ con.name }}</h2>
+                <h6 class="position text-center">{{ con.position }}</h6>
+                <h6 class="firm text-center">{{ con.firm }}</h6>
+                <h4 class="title text-center">{{ con.title }}</h4>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
 {% include 'partials/footer.html' %}
