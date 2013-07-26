@@ -14,6 +14,12 @@ hr.space { border-color: transparent; }
 
 .img-circle { border-radius: 500px; }
 
+.text-column {
+	-webkit-columns:3;
+	-moz-columns:3;
+	columns:3;
+}
+
 #projects .m-section {
 	
 	.title {
@@ -53,6 +59,35 @@ hr.space { border-color: transparent; }
 				color: $body-font-color;
 			}
 		}
+	}
+}
+
+#projects > .project-group:first-child .project-title {
+	padding-top: 0;
+}
+
+.project-group {
+
+	.project-title {
+		border-bottom: 1px solid #CCC;
+	}
+
+	& .project-group .project-title {
+		border:none;
+	}
+
+	& .project-group {
+		border-left: 1px solid #CCC;
+		margin-left: $column-gutter;
+	}
+
+	.row:first-child {
+		padding-top: $column-gutter;
+	}
+
+	.row:last-child {
+		border-bottom: 1px solid #CCC;
+		padding-bottom: $column-gutter;
 	}
 }
 

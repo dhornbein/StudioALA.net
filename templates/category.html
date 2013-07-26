@@ -1,14 +1,20 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
+    {% include 'partials/bread_crumb.html' %}
     <div class="container">
-      <div id="projectTitle">
-        <h1>{{ page.name|default(page.page_name) }}</h1>
+      <div id="projectTitle" class="row">
+        <div class="small-12 column">
+            <h1>{{ page.name|default(page.page_name) }}</h1>
+        </div>
+        {% if page.html['content.html'] %}
+        <div class="column small-12 text-column">{{ page.html['content.html'].content }}</div>
+        {% endif %}
       </div>
     </div>
     <div id="projects">
-    	{% for child in page.children %}
-    		<h1>{{ child.name|default(child.page_name) }}</h1>
-			{% include 'partials/projects/project_list.html' with { 'columns': page.columns|default(3), 'page' : child } %}
-    	{% endfor %}
+        {% for child in page.children %}
+            <div class="project-group">{% include 'partials/projects/category.html' with { 'page' : child } %}</div>
+        {% endfor %}
     </div>
+    {% include 'partials/siblings.html' %}
 {% include 'partials/footer.html' %}

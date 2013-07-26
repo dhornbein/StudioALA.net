@@ -1,0 +1,63 @@
+{% include 'partials/header.html' %}
+    {% include 'partials/title_bar.html' %}
+    {% include 'partials/bread_crumb.html' %}
+    <div class="container">
+      <div id="projectTitle" class="row">
+        <div class="small-12 column">
+            <h1>{{ page.name|default(page.page_name) }}</h1>
+        </div>
+      </div>
+    </div>
+    <div id="projects">
+        {% for child in page.children %}
+        <div class="row">
+          {% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
+          <div class="small-12 large-6 column">
+            <h2 class="title"><a href="{{ child.permalink }}">{{ child.name|default(child.page_name) }}</a></h2>
+            <ul class="small-5 right panel radius no-bullet">
+              {% for nav_child in child.children %}
+                    <li>
+                      <a href="{{ nav_child.permalink }}">{{ nav_child.name|default(nav_child.page_name) }}</a>
+                      {% if nav_child.children %}
+                      <ul class="no-bullet">
+                        {% for nav_subchild in nav_child.children %}
+                            <li>
+                              <a href="{{ nav_subchild.permalink }}">{{ nav_subchild.name|default(nav_subchild.page_name) }}</a>
+                            </li>
+                        {% endfor %}
+                      </ul>
+                      {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            {{ child.html['content.html'].content }}
+            <a class="button secondary" href="{{ child.permalink }}">See more {{ child.name|default(child.page_name) }} projects</a>
+          </div>
+          <div class="m-projects-list small-12 large-6 column">
+              <div class="row collapse">
+                {% block context %}
+                {% for proj in child.children if proj.index <= 4 %}
+                      <div class="m-pl-project small-6 column">
+                        {% if proj.children %}
+                          {% for proj_child in proj.children %}
+                            {% if loop.index == 1 or proj_child.featured %}
+                            {% include 'partials/projects/projects_list_content.html' with { 'page' : proj_child } %}
+                            {% endif %}
+                          {% endfor %}
+                        {% else %}
+                          {% include 'partials/projects/projects_list_content.html' with { 'page' : proj } %}
+                        {% endif %}
+                      </div>
+
+                  {% if loop.index == 2 %}
+                            </div>
+                            <div class="row collapse">
+                          {% endif %}
+              {% endfor %}
+              {% endblock %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+{% include 'partials/footer.html' %}

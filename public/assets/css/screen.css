@@ -5405,6 +5405,11 @@ hr.space {
 .img-circle {
   border-radius: 500px; }
 
+.text-column {
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 3; }
+
 #projects .m-section .title {
   border-color: #FFF #FFF #CCC;
   border-style: solid;
@@ -5426,6 +5431,22 @@ hr.space {
   z-index: 100; }
   #projects .m-section section.active .title a {
     color: #222222; }
+
+#projects > .project-group:first-child .project-title {
+  padding-top: 0; }
+
+.project-group .project-title {
+  border-bottom: 1px solid #CCC; }
+.project-group .project-group .project-title {
+  border: none; }
+.project-group .project-group {
+  border-left: 1px solid #CCC;
+  margin-left: 1.875em; }
+.project-group .row:first-child {
+  padding-top: 1.875em; }
+.project-group .row:last-child {
+  border-bottom: 1px solid #CCC;
+  padding-bottom: 1.875em; }
 
 .m-pl-project {
   position: relative; }

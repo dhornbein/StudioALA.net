@@ -1,12 +1,3 @@
-{#
-@span - width of container column (always 12)
-@columns - number of columns to fill up
-@recursive - search children
-#}
-{% set span = (span) ? span : 12 %}
-{% set columns = (columns) ? columns : 3 %}
-{% set depth = (depth) ? depth : 0 %}
-
 <div class="m-section" data-section="tabs">
 {% for child in page.children %}
 <section>

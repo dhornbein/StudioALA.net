@@ -13,7 +13,7 @@
         {% if page.stats %}
         <ul class="no-bullet">
         {% for name, stat in page.stats %}
-          <li><strong>{{ name }}:</strong> {{ stat }}</li>
+          <li><strong>{{ name|capitalize }}:</strong> {{ stat }}</li>
         {% endfor %}
         </ul>
         {% endif %}
@@ -42,24 +42,4 @@
     {% include 'partials/siblings.html' %}
 
   </div>
-
-  {% for img in page.images %}
-  <div id="slide_{{ loop.index }}" class="reveal-modal expand">
-    <nav class="slideShowNav">
-      {% if not loop.last %}
-      <div class="next" data-reveal-id="slide_{{ loop.index + 1 }}">Next</div>
-      {% else %}
-      <div class="next" data-reveal-id="slide_1">Next</div>
-      {% endif %}
-      {% if not loop.first %}
-      <div class="prev" data-reveal-id="slide_{{ loop.index - 1 }}">Prev</div>
-      {% else %}
-      <div class="prev" data-reveal-id="slide_{{ loop.length }}">Prev</div>
-      {% endif %}
-    </nav>
-    <img src="{{ img.url }}" alt="{{ img.name }}">
-    <p>{{ img.name }}</p>
-    <a class="close-reveal-modal">&#215;</a>
-  </div>
-  {% endfor %}
 {% include 'partials/footer.html' %}
