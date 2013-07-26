@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd public/assets/scss
+
+sass --watch foundation.scss:../css/screen.css &
+
+google-chrome http://studioala.lcl

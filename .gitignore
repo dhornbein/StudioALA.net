@@ -11,3 +11,4 @@ logs
 htaccess
 .htaccess
 public/assets/css/screen.css
+libpeerconnection.log

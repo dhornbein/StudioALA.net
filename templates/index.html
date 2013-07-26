@@ -13,11 +13,8 @@
     <hr class="space">
     
     <div id="projects" class="row">
-      <div class="small-12 column">
-        <h3>Portfolio</h3>
         {% set projects = get('/projects') %}
         {% include 'partials/projects/home_categories.html' with { 'columns': 1, 'depth' : 2, 'page' : projects } %}
-      </div>
     </div>
 
     <hr class="space">

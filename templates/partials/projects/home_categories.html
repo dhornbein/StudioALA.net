@@ -7,47 +7,47 @@
 {% set columns = (columns) ? columns : 3 %}
 {% set depth = (depth) ? depth : 0 %}
 
-<div class="row">
+<div class="m-section" data-section="tabs">
 {% for child in page.children %}
-  {% set class = (child.children_count > 1) ? 'cat-' ~ child.slug : 'project-' ~ child.slug %}
-  <div class="small-12 large-6 column">
-  	<ul class="small-5 right panel radius no-bullet">
-  		{% for nav_child in child.children %}
-  		    <li>
-  		    	<a href="{{ nav_child.permalink }}">{{ nav_child.name|default(nav_child.page_name) }}</a>
-  		    </li>
-  		{% endfor %}
-  	</ul>
-    <a href="{{ child.permalink }}"><h2 class="title">{{ child.name|default(child.page_name) }}</h2></a>
-    {{ child.html['content.html'].content }}
-  </div>
-  <div class="small-12 large-6 column">
-    <div class="row collapse">
-    	{% block context %}
-      {% for proj in child.children if proj.index <= 4 %}
-					<div class="small-6 column">
-						{% if proj.children %}
-							{% for proj_child in proj.children %}
-						    {% if loop.index == 1 or proj_child.featured %}
-						    <img src="{{ proj_child.thumb.url|default(proj_child.page_name.images["1*"].url) }}" alt="">
-						    {% endif %}
-							{% endfor %}
-						{% else %}
-							<img src="{{ proj.thumb.url|default(proj_child.page_name.images["1*"].url) }}" alt="">
-						{% endif %}
-					</div>
-
-          {% if loop.index == 2 %}
-					</div>
-					<div class="row collapse">
-				  {% endif %}
-      {% endfor %}
-      {% endblock %}
+<section>
+  <div class="title" data-section-title><h2><a href="#panel{{ loop.index }}">{{ child.name|default(child.page_name) }}</a></h2></div>
+  <div class="content" data-section-content>
+    <div class="small-12 large-6 column">
+      <ul class="small-5 right panel radius no-bullet">
+        {% for nav_child in child.children %}
+            <li>
+              <a href="{{ nav_child.permalink }}">{{ nav_child.name|default(nav_child.page_name) }}</a>
+            </li>
+        {% endfor %}
+      </ul>
+      {{ child.html['content.html'].content }}
+      <a class="button" href="{{ child.permalink }}">More...</h2></a>
+    </div>
+    <div class="m-projects-list small-12 large-6 column">
+      <div class="row collapse">
+        {% block context %}
+        {% for proj in child.children if proj.index <= 4 %}
+              <div class="m-pl-project small-6 column">
+                {% if proj.children %}
+                  {% for proj_child in proj.children %}
+                    {% if loop.index == 1 or proj_child.featured %}
+                    {% include 'partials/projects/projects_list_content.html' with { 'page' : proj_child } %}
+                    {% endif %}
+                  {% endfor %}
+                {% else %}
+                  {% include 'partials/projects/projects_list_content.html' with { 'page' : proj } %}
+                {% endif %}
+              </div>
+    
+            {% if loop.index == 2 %}
+              </div>
+              <div class="row collapse">
+              {% endif %}
+        {% endfor %}
+        {% endblock %}
+      </div>
     </div>
   </div>
-  {% if not loop.last %}
-</div>
-<div class="row">
-  {% endif %}
+</section>
 {% endfor %}
 </div>

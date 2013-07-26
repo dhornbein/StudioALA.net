@@ -1,50 +1,93 @@
+@mixin transition($property, $duration, $ms: false) {
+	-webkit-transition: $property $duration ease-in-out;
+	-moz-transition: $property $duration ease-in-out;
+	-o-transition: $property $duration ease-in-out;
+	@if ($ms) {
+		-ms-transition: $property $duration ease-in-out;
+	}
+	transition: $property $duration ease-in-out;
+}
+
 // Layout
 
 hr.space { border-color: transparent; }
 
 .img-circle { border-radius: 500px; }
 
-// Modules
-
-.m-project {
-	overflow: hidden;
+#projects .m-section {
+	
 	.title {
-		margin: 0;
-		padding: 0;
-		position: absolute;
+		border-color: #FFF #FFF #CCC;
+		border-style: solid;
+		border-width: 1px;
+		padding: 0 $column-gutter;
 		text-align: center;
-		top: 0;
-		width: 100%;
 		text-transform: uppercase;
-		-webkit-transition:font-size 600ms ease-in;
-		   -moz-transition:font-size 600ms ease-in;
-		     -o-transition:font-size 600ms ease-in;
-		    -ms-transition:font-size 600ms ease-in;
-		        transition:font-size 600ms ease-in;
-	}
-	.projectThumb {
-		img { width: 100%; }
-	}
-	.projectChild {
-		display: none;
-	}
-}
+		// width: 33%;
+		@include transition(border, 500ms);
 
-.m-projects-list {
-	border-bottom: 1px solid #DDD;
-	margin-bottom: 1.5em;
-	padding-bottom: 1.5em;
-	position: relative;
-	.column.title {
-		position: absolute;
-		bottom: 0;
-		margin: 0;
-		padding: 0 emCalc(16px) 1.5em;
-		h3 {
-			margin: 0;
+		h2 {
+			margin-bottom: 0;
+		}
+
+		&:hover {
+		}
+	}
+
+	.title:nth-child(2) {
+		// width: 34%;
+	}
+
+	.content {
+		border-top: 1px solid #CCC;
+		padding: $column-gutter 0;
+	}
+
+	section.active {
+		
+		.title {
+			border-color: #CCC #CCC #FFF #CCC;
+			z-index: 100;
+
+			a {
+				color: $body-font-color;
+			}
 		}
 	}
 }
+
+// Modules
+
+.m-projects-list {
+
+}
+
+	.m-pl-project {
+		position: relative;;
+
+		.m-pl-thumb {
+
+		}
+
+		.m-pl-title {
+			background-color: rgba(#000, 0.4);
+			color:white;
+			margin: 0;
+			padding: 0 .5em;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			@include transition(all, 800ms);
+		}
+
+		a:hover .m-pl-title {
+			background-color: rgba(#000, 0.8);
+			color:$primary-color;
+			padding-bottom:1em;
+			@include transition(all, 200ms);
+		}
+	}
 
 .m-consultants {
 	.info {

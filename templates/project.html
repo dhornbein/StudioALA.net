@@ -29,10 +29,10 @@
         
       </div>
       <div class="small-12 large-8 column">
-        <ul class="small-block-grid-{{ page.images|length }}">
+        <ul class="img-gallery small-block-grid-{{ page.images|length }}">
         {% for img in page.images %}
         <li class="text-center">
-          <a href="#" data-reveal-id="slide_{{ loop.index }}"><img class="th" src="{{ img.small|default(img.url) }}" alt="{{ img.name }}"></a>
+          <a href="{{ img.url }}" title="{{ img.name }}"><img class="th" src="{{ img.small|default(img.url) }}" alt="{{ img.name }}"></a>
         </li>
         {% endfor %}
         </ul>
