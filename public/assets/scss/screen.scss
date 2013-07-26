@@ -16,6 +16,12 @@ hr.space { border-color: transparent; }
 
 .margin-bottom { margin-bottom: 1.5em !important; }
 
+
+// ##### TODO: make sure this breaks on media query
+.large-2.large-fifth {
+	width: 20%;
+}
+
 .text-column {
 	-webkit-columns:3;
 	-moz-columns:3;

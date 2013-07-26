@@ -1,4 +1,6 @@
-<a href="{{ page.permalink }}">
+{% set title = (title) ? title : page.name|default(page.page_name) %}
+{% set permalink = (permalink) ? permalink : page.permalink %}
+<a href="{{ permalink }}">
   <img class="m-pl-thumb" src="{{ page.page_name.images["featured.jpg"].url|default(page.thumb.url) }}" alt="">
-  <h3 class="m-pl-title">{{ page.name|default(page.page_name) }}</h3>
+  <h3 class="m-pl-title">{{ title }}</h3>
 </a>
