@@ -2,7 +2,7 @@
   {% include 'partials/title_bar.html' %}
   {% include 'partials/bread_crumb.html' %}
     <div class="row">
-      <div class="small-6 column">
+      <div class="large-6 column">
         <h1>{{ page.name|default(page.page_name) }}</h1>
         <div class="right">
           {% for img in page.images if loop.first %}
@@ -14,39 +14,31 @@
       </div>
       <div class="large-6 column">
         <h1>{{ page.subtitle }}</h1>
+        <h2>George Hornbein</h2>
         <div class="row">
-          <div class="small-3 column text-center"><img src="./content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></div>
+          <div class="small-3 column text-center"><a href="{{ page.children['1.George-Hornbein'].permalink }}"><img src="./content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></a></div>
           <div class="small-9 column">
-            <h1>George Hornbein</h1>
-            <p class="lead">Is a founding partner of Studio ALA, LLC. He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years,    many of which have incorporated sustainable design features.</p>
+            <p class="lead">Is a founding partner of Studio ALA, LLC. He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years, many of which have incorporated sustainable design features.</p>
+            <a href="{{ page.children['1.George-Hornbein'].permalink }}" class="button small">Read More...</a>
           </div>
         </div>
+        <hr>
+        <h2>Consultants</h2>
         <div id="consultant" class="m-consultants">
-          <div class="row">
           {% set people = get('/about/consultants') %}
           {% for con in people.consultants %}
-              
-            {% set split = 3 %}
-            {% set col = (loop.index <= 2) ? 3 : 2 %}
-            {% set offset = "large-offset-3" %}
-          
-          {% if loop.index == split %}
-          </div>
-          <div class="row">
-          {% endif %}
-
-            <div class="large-{{ col }} {{ (loop.first or loop.index == split) ? offset : '' }} columns{{ loop.last or loop.index == split - 1 ? ' end' : '' }}">
+          <div class="row margin-bottom">
+            <div class="small-3 column">
               <img src="http://flickholdr.com/400/400/face,smile" alt="" class="profile img-circle">
-              <hr>
-              <div class="info">
-                <h2 class="name fit text-center">{{ con.name }}</h2>
-                <h6 class="position text-center">{{ con.position }}</h6>
-                <h6 class="firm text-center">{{ con.firm }}</h6>
-                <h4 class="title text-center">{{ con.title }}</h4>
-              </div>
             </div>
-          {% endfor %}
+            <div class="info small-9 column">
+              <h2 class="name fit">{{ con.name }}</h2>
+              <h6 class="position">{{ con.position }}</h6>
+              <h6 class="firm">{{ con.firm }}</h6>
+              <h4 class="title">{{ con.title }}</h4>
+            </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>

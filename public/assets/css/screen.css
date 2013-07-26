@@ -5405,6 +5405,9 @@ hr.space {
 .img-circle {
   border-radius: 500px; }
 
+.margin-bottom {
+  margin-bottom: 1.5em !important; }
+
 .text-column {
   -webkit-columns: 3;
   -moz-columns: 3;
