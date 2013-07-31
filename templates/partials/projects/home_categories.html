@@ -1,39 +1,28 @@
-<div class="m-section" data-section="tabs">
+
 {% for child in page.children %}
-<section>
-  <div class="title" data-section-title><h2><a href="#panel{{ loop.index }}">{{ child.name|default(child.page_name) }}</a></h2></div>
-  <div class="content" data-section-content>
-    <p class="lead">{{ child.content }}</p>
-    <div class="small-12 large-6 column">
-      <ul class="small-5 right panel radius no-bullet">
-        {% for nav_child in child.children %}
-            <li>
-              <a href="{{ nav_child.permalink }}">{{ nav_child.name|default(nav_child.page_name) }}</a>
-            </li>
-        {% endfor %}
-      </ul>
-      <a class="button" href="{{ child.permalink }}">More...</h2></a>
-    </div>
-    <div class="m-projects-list small-12 column">
-      <div class="row collapse">
-        {% block context %}
-        {% for proj in child.children %}
-              <div class="m-pl-project large-{{ 12 // loop.length }} column {{ loop.last ? 'end' : '' }} {{ loop.length == 5 ? 'large-fifth' : '' }}">
-                {% if proj.children %}
-                  {% for proj_child in proj.children %}
-                    {% if loop.index == 1 or proj_child.featured %}
-                    {% include 'partials/projects/projects_list_content.html' with { 'page' : proj_child, 'title' : proj.name|default(proj.page_name), 'permalink' : proj.permalink } %}
-                    {% endif %}
-                  {% endfor %}
-                {% else %}
-                  {% include 'partials/projects/projects_list_content.html' with { 'page' : proj } %}
-                {% endif %}
-              </div>
-        {% endfor %}
-        {% endblock %}
-      </div>
+<section id="{{ child.slug|lower }}" class="row">
+  <div class="small-12 large-12 column">
+    <div class="title"><h2><a href="{{ child.permalink }}">{{ child.name|default(child.page_name) }}</a> <small>{{ child.content }}</small></h2></div>
+  </div>
+  <div class="m-projects-list small-12 column">
+    <div class="row collapse">
+      {% for proj in child.children %}
+      {% set feature = 2 %}
+      {% set large = ( loop.index <= feature ) ? 12 // feature : 12 // (loop.length - feature) %}
+      {% set small = ( loop.first and not loop.length // 2 == 0 or loop.length <= 2 ) ? '12' : '6' %}
+        <div class="m-pl-project large-{{ large }} small-{{ small }} column {{ loop.last ? 'end' : '' }}">
+          {% if proj.children %}
+            {% for proj_child in proj.children %}
+              {% if loop.index == 1 or proj_child.featured %}
+              {% include 'partials/projects/projects_list_content.html' with { 'page' : proj_child, 'title' : proj.name|default(proj.page_name), 'permalink' : proj.permalink } %}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% include 'partials/projects/projects_list_content.html' with { 'page' : proj } %}
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 {% endfor %}
-</div>

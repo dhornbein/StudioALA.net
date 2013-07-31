@@ -5408,9 +5408,9 @@ hr.space {
 .margin-bottom {
   margin-bottom: 1.5em !important; }
 
-.large-2.large-fifth {
-  width: 20%; }
-
+@media only screen and (min-width: 768px) {
+  .large-2.large-fifth {
+    width: 20%; } }
 .text-column {
   -webkit-columns: 3;
   -moz-columns: 3;
@@ -5456,6 +5456,8 @@ hr.space {
 
 .m-pl-project {
   position: relative; }
+  .m-pl-project .m-pl-thumb {
+    min-width: 100%; }
   .m-pl-project .m-pl-title {
     background-color: rgba(0, 0, 0, 0.4);
     color: white;

@@ -12,7 +12,7 @@
     
     <hr class="space">
     
-    <div id="projects" class="row">
+    <div id="projects">
         {% set projects = get('/projects') %}
         {% include 'partials/projects/home_categories.html' with { 'columns': 1, 'depth' : 2, 'page' : projects } %}
     </div>
