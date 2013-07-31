@@ -3,11 +3,15 @@
   {% include 'partials/bread_crumb.html' %}
   <div class="wrapper">
     <div class="row">
-      <div class="small-12 large-4 column">
+      <div class="small-12 column">
         <h1>{{ page.name|default(page.page_name) }}</h1>
+      </div>
+      <div class="small-12 large-4 column">
 
         {% if page.files['content.html'] %}
         <div class="projectContent">{{ page.files['content.html'].content }}</div>
+        {% elseif page.content %}
+        <div class="projectContent">{{ page.content }}</div>
         {% endif %}
 
         {% if page.stats %}
@@ -26,7 +30,7 @@
         {% endfor %}
         </ul>
         {% endif %}
-        
+        <p class="small"><em>{{ page.footnote }}</em></p>
       </div>
       <div class="small-12 large-8 column">
         <ul class="img-gallery small-block-grid-{{ page.images|length }}">

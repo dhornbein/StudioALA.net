@@ -1,7 +1,13 @@
+content: |
+ East Atlanta Library is a single story neighborhood library. Along with typical library features, the library has expanded computer facilities, a community meeting room, and an exterior plaza where community events can be staged.
+
+ The building was designed to take full advantage of natural light through the use of clerestories, sunshades and sun reflectors.  An under-floor plenum system eliminates the need for ductwork and economically heats and cools the vaulted ceilings.  Pervious pavement and an underground cistern collects all rain water from the site and slowly allows it to percolate back into the ground.
+
+ The building is steel frame construction with brick veneer and a highly reflective PVC roof. 
 stats:
  owner: City of Atlanta
- cost: $500000 US
+ cost: $500,000 US
  size: 8000 sq ft
 awards:
- - medal of honor
- - thing that is good
+ - LEED Silver Certified
+ - Atlanta Magazine "Best New Library for 2005"

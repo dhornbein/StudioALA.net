@@ -4,11 +4,8 @@
     <div class="container">
       <div id="projectTitle" class="row">
         <div class="small-12 column">
-            <h1>{{ page.name|default(page.page_name) }}</h1>
+            <h1>{{ page.name|default(page.page_name) }} <small>{{ page.content }}</small></h1>
         </div>
-        {% if page.html['content.html'] %}
-        <div class="column small-12 text-column">{{ page.html['content.html'].content }}</div>
-        {% endif %}
       </div>
     </div>
     <div id="projects">

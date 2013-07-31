@@ -1,0 +1,13 @@
+name: Fire Station 13
+content: |
+ The City of Atlanta’s Fire Station13 is a two-bay station housing a ten-person crew.  The energy efficient building includes underground rain water retention chambers that contain first flush storm water and serve as reservoirs that allow fire fighters to wash their trucks using rain water instead of treated municipal water, saving thousands of gallons per year.
+
+ The building plan is laid out so the distance from any point in the building to the apparatus bay is short and direct, reducing response time to a minimum.
+
+ The building is load bearing concrete masonry with insulation and a brick veneer.  The finishes are tile, painted concrete painted concrete block, colored concrete flooring and exposed ceilings; all designed for durability and ease of maintenance.  The building is designed for a fifty-year life cycle.
+stats:
+ owner: City of Atlanta
+ cost: $2,400,000
+ area: 10,000 sq ft
+awards:
+ - LEED Silver Certified
