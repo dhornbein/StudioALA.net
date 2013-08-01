@@ -16,6 +16,10 @@ hr.space { border-color: transparent; }
 
 .margin-bottom { margin-bottom: 1.5em !important; }
 
+.fixed-width {
+	max-width: 1000px;
+	margin: 0 auto;
+}
 
 @media #{$small} {
 	.large-2.large-fifth {

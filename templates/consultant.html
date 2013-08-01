@@ -1,0 +1,51 @@
+{% include 'partials/header.html' %}
+  {% include 'partials/title_bar.html' %}
+  {% include 'partials/bread_crumb.html' %}
+  <div class="wrapper fixed-width">
+    <div class="row">
+      <div class="small-12 column">
+        {% for img in page.images if loop.first %}
+        <div class="right">
+          <img class="img-circle" src="{{ img.small|default(img.url) }}" alt="{{ img.name }}"></a>
+        </div>
+        {% endfor %}
+        <h1>{{ page.name|default(page.page_name) }}</h1>
+        <h3>{{ page.position }}</h3>
+        <h4>{{ page.firm }}</h4>
+        <h3>{{ page.title }}</h3>
+
+        <div class="projectContent">
+          <h1>Professional Background</h1>
+          {{ page.files['content.html'].content|default(page.content) }}
+        </div>
+
+        {% if page.education %}
+        <h2>Education</h2>
+        <ul class="experience no-bullet">
+          {% for edu in page.education %}
+              <li>{{ edu }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <h2>Professional Experience</h2>
+        <ul class="experience no-bullet">
+          {% for exp in page.experience %}
+              <li>{{ exp }}</li>
+          {% endfor %}
+        </ul>
+
+        {% if page.projects %}
+        <h2>Projects</h2>
+        <ul class="experience no-bullet">
+          {% for proj in page.projects %}
+              <li>{{ proj }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    {% include 'partials/siblings.html' %}
+
+  </div>
+{% include 'partials/footer.html' %}

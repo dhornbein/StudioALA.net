@@ -1,0 +1,31 @@
+{% include 'partials/header.html' %}
+  {% include 'partials/title_bar.html' %}
+  {% include 'partials/bread_crumb.html' %}
+    <div class="wrapper fixed-width">
+      <div class="row">
+        <div class="large-12 column">
+          <h1>Consultants</h1>
+          <div id="consultant" class="m-consultants">
+            {% set people = get('/about/consultants') %}
+            {% for con in people.children %}
+      
+            <a href="{{ con.permalink }}" class="row margin-bottom">
+              <div class="small-3 column">
+                {% for img in con.images if loop.first %}
+                  <img src="{{ img }}" alt="" class="profile img-circle">
+                {% endfor %}
+              </div>
+              <div class="info small-9 column">
+                <h2 class="name fit">{{ con.name }}</h2>
+                <h6 class="position">{{ con.position }}</h6>
+                <h6 class="firm">{{ con.firm }}</h6>
+                <h4 class="title">{{ con.title }}</h4>
+                <span class="button secondary small">Read More...</span>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+{% include 'partials/footer.html' %}

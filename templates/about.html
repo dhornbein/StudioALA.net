@@ -26,10 +26,13 @@
         <h2>Consultants</h2>
         <div id="consultant" class="m-consultants">
           {% set people = get('/about/consultants') %}
-          {% for con in people.consultants %}
+          {% for con in people.children %}
+
           <div class="row margin-bottom">
             <div class="small-3 column">
-              <img src="http://flickholdr.com/400/400/face,smile" alt="" class="profile img-circle">
+              {% for img in con.images if loop.first %}
+                <img src="{{ img }}" alt="" class="profile img-circle">
+              {% endfor %}
             </div>
             <div class="info small-9 column">
               <h2 class="name fit">{{ con.name }}</h2>

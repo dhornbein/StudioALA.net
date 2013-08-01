@@ -5408,6 +5408,10 @@ hr.space {
 .margin-bottom {
   margin-bottom: 1.5em !important; }
 
+.fixed-width {
+  max-width: 1000px;
+  margin: 0 auto; }
+
 @media only screen and (min-width: 768px) {
   .large-2.large-fifth {
     width: 20%; } }

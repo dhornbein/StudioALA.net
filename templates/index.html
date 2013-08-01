@@ -33,12 +33,14 @@
     <div id="consultant" class="m-consultants">
       <div class="row">
       {% set people = get('/about/consultants') %}
-      {% for con in people.consultants %}
+      {% for con in people.children %}
           
         {% set col = 2 %}
         {% set offset = (loop.first) ? "large-offset-1" : "" %}
         <div class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }}">
-          <img src="http://flickholdr.com/400/400/face,smile" alt="" class="profile img-circle">
+          {% for img in con.images if loop.first %}
+            <img src="{{ img }}" alt="" class="profile img-circle">
+          {% endfor %}
           <hr>
           <div class="info">
             <h2 class="name fit text-center">{{ con.name }}</h2>
@@ -46,7 +48,9 @@
             <h6 class="firm text-center">{{ con.firm }}</h6>
             <h4 class="title text-center">{{ con.title }}</h4>
             <hr>
-            <p class="profile">{{ con.profile }}</p>
+            <div class="text-center">
+              <a class="button secondary small" href="{{ con.permalink }}">Learn more about {{ con.name }}</a>
+            </div>
           </div>
         </div>
 
