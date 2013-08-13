@@ -9,18 +9,16 @@
           <img class="img-circle" src="{{ img.small|default(img.url) }}" alt="{{ img.name }}"></a>
         </div>
         {% endfor %}
-        <h1>{{ page.name|default(page.page_name) }}</h1>
-        <h3>{{ page.position }}</h3>
-        <h4>{{ page.firm }}</h4>
-        <h3>{{ page.title }}</h3>
+        <h1>{{ page.name|default(page.page_name) }}<br><small>{{ page.title }}</small></h1>
+        <h2>{{ page.firm }}<br><small>{{ page.position }}</small></h2>
 
         <div class="projectContent">
-          <h1>Professional Background</h1>
+          <h4>Professional Background</h4>
           {{ page.files['content.html'].content|default(page.content) }}
         </div>
 
-        {% if page.education %}
-        <h2>Education</h2>
+        {% if page.education and 1 == 2 %}
+        <h4>Education</h4>
         <ul class="experience no-bullet">
           {% for edu in page.education %}
               <li>{{ edu }}</li>
@@ -28,15 +26,15 @@
         </ul>
         {% endif %}
 
-        <h2>Professional Experience</h2>
+        <h4>Professional Experience</h4>
         <ul class="experience no-bullet">
           {% for exp in page.experience %}
               <li>{{ exp }}</li>
           {% endfor %}
         </ul>
 
-        {% if page.projects %}
-        <h2>Projects</h2>
+        {% if page.projects and 1 == 2 %}
+        <h4>Projects</h4>
         <ul class="experience no-bullet">
           {% for proj in page.projects %}
               <li>{{ proj }}</li>

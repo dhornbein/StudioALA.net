@@ -16,11 +16,9 @@
                 {% endfor %}
               </div>
               <div class="info small-9 column">
-                <h2 class="name fit">{{ con.name }}</h2>
-                <h6 class="position">{{ con.position }}</h6>
-                <h6 class="firm">{{ con.firm }}</h6>
-                <h4 class="title">{{ con.title }}</h4>
-                <span class="button secondary small">Read More...</span>
+                <h1 class="name">{{ con.name }}<br><small class="title">{{ con.title }}</small></h1>
+                <h2 class="firm">{{ con.firm }}<br><small class="position">{{ con.position }}</small></h2>
+                <span class="button secondary">Read More...</span>
               </div>
             </a>
             {% endfor %}

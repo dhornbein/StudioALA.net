@@ -37,16 +37,14 @@
           
         {% set col = 2 %}
         {% set offset = (loop.first) ? "large-offset-1" : "" %}
-        <div class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }}">
+        <div class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
           {% for img in con.images if loop.first %}
             <img src="{{ img }}" alt="" class="profile img-circle">
           {% endfor %}
           <hr>
           <div class="info">
-            <h2 class="name fit text-center">{{ con.name }}</h2>
-            <h6 class="position text-center">{{ con.position }}</h6>
-            <h6 class="firm text-center">{{ con.firm }}</h6>
-            <h4 class="title text-center">{{ con.title }}</h4>
+            <h1 class="name">{{ con.name }}<br><small class="title">{{ con.title }}</small></h1>
+            <h2 class="firm">{{ con.firm }}<br><small class="position">{{ con.position }}</small></h2>
             <hr>
             <div class="text-center">
               <a class="button secondary small" href="{{ con.permalink }}">Learn more about {{ con.name }}</a>
