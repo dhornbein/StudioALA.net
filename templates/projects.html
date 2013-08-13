@@ -4,7 +4,11 @@
     <div class="container">
       <div id="projectTitle" class="row">
         <div class="small-12 column">
-            <h1>{{ page.name|default(page.page_name) }}</h1>
+            <h1>{{ page.name|default(page.page_name) }}
+          {% for child in page.children %}
+              <small>: <a href="#{{ child.slug|lower }}">{{ child.name|default(child.page_name) }}</a></small>
+          {% endfor %}
+        </h1>
         </div>
       </div>
     </div>

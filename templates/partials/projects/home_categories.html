@@ -1,8 +1,9 @@
 
 {% for child in page.children %}
 <section id="{{ child.slug|lower }}" class="row">
+  {% if not loop.first %}<hr class="space">{% endif %}
   <div class="small-12 large-12 column">
-    <div class="title"><h2><a href="{{ child.permalink }}">{{ child.name|default(child.page_name) }}</a> <small>{{ child.content }}</small></h2></div>
+    <div class="title"><h1><a href="{{ child.permalink }}">{{ child.name|default(child.page_name) }}</a> <small>{{ child.content }}</small></h1></div>
   </div>
   <div class="m-projects-list small-12 column">
     <div class="row collapse">

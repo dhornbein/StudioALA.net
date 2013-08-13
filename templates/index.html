@@ -1,9 +1,9 @@
 {% include 'partials/header.html' %}
     {% include 'partials/title_bar.html' %}
 
-    <div class="row">
+    <div id="hero" class="row">
       <div class="large-4 column">
-        <h1>{{ page.meta.title|default(page.page_name) }}</h1>
+        <h1 class="fit">{{ page.meta.title|default(page.page_name) }}</h1>
         <p class="lead">Studio ALA provides design services for a wide range of project types &mdash; <a href="">private residences</a>, <a href="">community centers</a>, <a href="">libraries</a>, <a href="">fire stations</a>, <a href="">water treatment facilities</a>, <a href="">community master plans</a>, <a href="">custom furniture</a>, and <a href="">USGBC LEED projects</a>.</p>
         <a href="{{ page.root_path }}?/about/" class="button small">About us</a> <a href="#projects" class="button small secondary">More...</a>
       </div>
@@ -19,17 +19,19 @@
 
     <hr class="space">
 
-    <div id="people" class="row">
+    <div id="people" class="row green-bkg">
       <div class="large-2 column large-offset-1 text-center"><img src="./content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></div>
       <div class="large-8 column end">
         <h1>George Hornbein</h1>
-        <p class="lead">Is a founding partner of Studio ALA, LLC. He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years,    many of which have incorporated sustainable design features.</p>
+        <h4>Founding partner of Studio ALA, LLC.</h4>
+        <p class="lead">He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years,    many of which have incorporated sustainable design features.</p>
       </div>
     </div>
 
     <hr class="space">
 
-    <h3 class="text-center">The Consultants</h3>
+    <h4 class="text-center">The Consultants</h4>
+    <hr class="space">
     <div id="consultant" class="m-consultants">
       <div class="row">
       {% set people = get('/about/consultants') %}
@@ -37,20 +39,20 @@
           
         {% set col = 2 %}
         {% set offset = (loop.first) ? "large-offset-1" : "" %}
-        <div class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
+        <a href="{{ con.permalink }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
           {% for img in con.images if loop.first %}
             <img src="{{ img }}" alt="" class="profile img-circle">
           {% endfor %}
           <hr>
           <div class="info">
             <h1 class="name">{{ con.name }}<br><small class="title">{{ con.title }}</small></h1>
-            <h2 class="firm">{{ con.firm }}<br><small class="position">{{ con.position }}</small></h2>
+            <h2 class="firm hide">{{ con.firm }}<br><small class="position">{{ con.position }}</small></h2>
             <hr>
             <div class="text-center">
-              <a class="button secondary small" href="{{ con.permalink }}">Learn more about {{ con.name }}</a>
+              <span class="button secondary small">Learn more about {{ con.name }}</span>
             </div>
           </div>
-        </div>
+        </a>
 
       {% endfor %}
       </div>

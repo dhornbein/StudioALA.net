@@ -1,5 +1,25 @@
-<div class="employee">
-	<a class="large" href="{{ employee.permalink }}"><img class="column" src="{{ employee.thumb.url }}"> {{ employee.name|default(employee.page_name) }}</a>
-	<p>{{ employee.snippit }} <a href="{{ employee.permalink }}">Read More...</a></p>
-	<hr>
-</div>
+	<div id="consultant" class="m-consultants">
+		<hr class="space">
+		<h4 class="text-center">Other Consultants</h4>
+		<hr class="space">
+      <div class="row">
+      {% set people = get('/about/consultants') %}
+      {% for con in people.children %}
+          
+        {% set col = 2 %}
+        {% set selected = ( con.slug == page.slug ) ? 'active' : '' %}
+        {% set offset = (loop.first) ? "large-offset-1" : "" %}
+        <a href="{{ con.permalink }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center {{ selected }}">
+          {% for img in con.images if loop.first %}
+            <img src="{{ img }}" alt="" class="profile img-circle">
+          {% endfor %}
+          <hr>
+          <div class="info">
+            <h4 class="name">{{ con.name }}</h4>
+            <hr>
+          </div>
+        </a>
+
+      {% endfor %}
+      </div>
+    </div>

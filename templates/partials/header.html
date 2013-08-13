@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="{{ page.root_path }}/public/assets/css/screen.css" type="text/css" media="screen">
   <script type="text/javascript" src="{{ page.root_path }}public/assets/js/plugins/modernizer.js"></script>
 </head>
-<body id="{{ page.slug }}" class="{{ page.parent.slug }}"{% if page.background_color %} style="background-color:#{{ page.background_color }};"{% endif %}>
+<body id="{{ page.slug|lower }}" class="{{ page.parent.slug }}"{% if page.background_color %} style="background-color:#{{ page.background_color }};"{% endif %}>
 	{% if page.debug %}
 	{% set vardump = pebug(page) %}
 	{% endif %}

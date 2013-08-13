@@ -1,5 +1,4 @@
 <ul class="left">
-	<li id="home" class="navChild navChildTop"><a class="logo" href="{{ page.root_path }}">Home</a></li>
   {% for child in page.root %}
       <li id="{{ child.slug }}" class="{{ child.children_count ? 'has-dropdown ' : '' }}{{ child.is_current ? 'active ' : '' }}navChild navChildTop item-{{ loop.index }}{{ loop.last ? ' last' : '' }}">
       	<a href="{{ child.url }}">{{ child.page_name }}</a>

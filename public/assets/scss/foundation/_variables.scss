@@ -7,14 +7,14 @@
 $base-font-size: 100% !default;
 
 // $base-line-height is 24px while $base-font-size is 16px
-// $base-line-height: 150%;
+$base-line-height: 150%;
 
 // This is the default html and body font-size for the base em value.
 
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be a different size and not have it effect grid size too,
 // set the value of $em-base to $base-font-size ($em-base: $base-font-size;)
-$em-base: 16px !default;
+$em-base: 18px !default;
 
 // Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
 @function emCalc($pxWidth) {
@@ -29,8 +29,8 @@ $em-base: 16px !default;
 $default-float: left;
 
 // $body-bg: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-color: #222;
+$body-font-family: 'Playfair Display', serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -44,10 +44,13 @@ $default-float: left;
 
 // Colors
 
-// $primary-color: #2ba6cb;
-// $secondary-color: #e9e9e9;
-// $alert-color: #c60f13;
-// $success-color: #5da423;
+$ala-red:#A94526;
+$ala-green:#328E21;
+
+$primary-color: $ala-red;
+$secondary-color: $ala-green;
+$alert-color: #c60f13;
+$success-color: #5da423;
 
 // Make sure border radius matches unless we want it different.
 
@@ -137,18 +140,18 @@ $row-width: 100%;
 
 // Heading font styles
 
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: 'Lato', Helvetica, Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
-// $header-line-height: 1.4;
+$header-line-height: 1;
 // $header-top-margin: .2em;
-// $header-bottom-margin: .5em;
+$header-bottom-margin: .75em;
 // $header-text-rendering: optimizeLegibility;
 
 // Heading font sizes
 
-// $h1-font-size: emCalc(44px);
+$h1-font-size: emCalc(48px);
 // $h2-font-size: emCalc(37px);
 // $h3-font-size: emCalc(27px);
 // $h4-font-size: emCalc(23px);
@@ -321,10 +324,10 @@ $row-width: 100%;
 
 // Padding for buttons.
 
-// $button-tny: emCalc(7px);
-// $button-sml: emCalc(9px);
-// $button-med: emCalc(12px);
-// $button-lrg: emCalc(16px);
+$button-tny: emCalc(9px);
+$button-sml: emCalc(12px);
+$button-med: emCalc(16px);
+$button-lrg: emCalc(24px);
 
 // Display property.
 
@@ -333,14 +336,14 @@ $row-width: 100%;
 
 // Button text styles.
 
-// $button-font-family: inherit;
+$button-font-family: $header-font-family;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
-// $button-font-med: emCalc(16px);
-// $button-font-tny: emCalc(11px);
-// $button-font-sml: emCalc(13px);
-// $button-font-lrg: emCalc(20px);
-// $button-font-weight: bold;
+$button-font-med: emCalc(20px);
+$button-font-tny: emCalc(15px);
+$button-font-sml: emCalc(17px);
+$button-font-lrg: emCalc(24px);
+$button-font-weight: normal;
 // $button-font-align: center;
 
 // Various hover effects.
@@ -1208,8 +1211,8 @@ $topbar-bg: #FFF;
 
 // Height and margin
 
-// $topbar-height: 45px;
-// $topbar-margin-bottom: emCalc(30px);
+$topbar-height: 45px;
+$topbar-margin-bottom: emCalc(30px);
 
 // Control Input height for top bar
 
@@ -1232,7 +1235,7 @@ $topbar-dropdown-toggle-color: #AAA;
 // Set the link colors and styles for top-level nav
 
 $topbar-link-color: #444;
-$topbar-link-color-hover: #666;
+$topbar-link-color-hover: $secondary-color;
 $topbar-link-color-active: #888;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
@@ -1250,10 +1253,10 @@ $topbar-link-hover-lightness: -30%; // Darken by 30%
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: emCalc(13px);
 // $topbar-menu-link-weight: bold;
-// $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
-// $topbar-menu-link-color-toggled: #888;
-// $topbar-menu-icon-color-toggled: #888;
+$topbar-menu-link-color: $primary-color;
+$topbar-menu-icon-color: $primary-color;
+$topbar-menu-link-color-toggled: #888;
+$topbar-menu-icon-color-toggled: #888;
 
 // Transitions and breakpoint styles
 

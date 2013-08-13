@@ -2,7 +2,7 @@
   {% include 'partials/title_bar.html' %}
   {% include 'partials/bread_crumb.html' %}
     <div class="row">
-      <div class="large-6 column">
+      <div class="large-5 column">
         <h1>{{ page.name|default(page.page_name) }}</h1>
         <div class="right">
           {% for img in page.images if loop.first %}
@@ -12,7 +12,7 @@
         </div>
         {{ page.bodyCopy ? page.bodyCopy : page.html['body.html'].content }}
       </div>
-      <div class="large-6 column">
+      <div class="large-6 large-offset-1 column">
         <h1>{{ page.subtitle }}</h1>
         <h2>George Hornbein</h2>
         <div class="row">

@@ -12,19 +12,9 @@
   <script type="text/javascript" src="{{ page.root_path }}public/assets/js/foundation/foundation.js"></script>
   <script type="text/javascript" src="{{ page.root_path }}public/assets/js/foundation/foundation.topbar.js"></script>
   <script type="text/javascript" src="{{ page.root_path }}public/assets/js/foundation/foundation.section.js"></script>
-  <script>
-    $(document).foundation();
-    $('.img-gallery').magnificPopup({
-      delegate: 'a', // child items selector, by clicking on it popup will open
-      type: 'image',
-      gallery:{enabled:true}
-    });
-  </script>
 
-  {% if page.js_default %}
   <!-- default script -->
   <script type="text/javascript" src="{{ page.root_path }}/public/assets/js/default_script.js"></script>
-  {% endif %}
 
 
   {% if page.google_analytics %}
