@@ -2,5 +2,8 @@
 {% set permalink = (permalink) ? permalink : page.permalink %}
 <a href="{{ permalink }}">
   <img class="m-pl-thumb" src="{{ page.page_name.images["featured.jpg"].url|default(page.thumb.url) }}" alt="">
-  <h3 class="m-pl-title">{{ title }}</h3>
+  <div class="m-pl-caption">
+  	<h4 class="m-pl-title">{{ title }}</h4>
+  	<span class="button rounded small">See more</span>
+  </div>
 </a>
