@@ -209,7 +209,7 @@ li.divider {
 
 
 		.m-pl-caption {
-			background-color: rgba(#000, 0.4);
+			background-color: #222;
 			color:white;
 			margin: 0;
 			padding: .5em;
@@ -227,7 +227,7 @@ li.divider {
 		}
 
 		a:hover .m-pl-caption {
-			background-color: rgba(#000, 0.8);
+			background-color: #666;
 			color:$primary-color;
 			padding-bottom:1em;
 			@include transition(all, 200ms);

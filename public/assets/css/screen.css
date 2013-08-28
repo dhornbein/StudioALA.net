@@ -5532,7 +5532,7 @@ li.divider {
     -ms-transform: translateY(-20%) scale(0.5);
     transform: translateY(-20%) scale(0.5); }
   .m-pl-project .m-pl-caption {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: #222;
     color: white;
     margin: 0;
     padding: .5em;
@@ -5550,7 +5550,7 @@ li.divider {
       color: white;
       margin-top: 40%; }
   .m-pl-project a:hover .m-pl-caption {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #666;
     color: #a94526;
     padding-bottom: 1em;
     -webkit-transition: all 200ms ease-in-out;
