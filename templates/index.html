@@ -48,9 +48,20 @@
             <h1 class="name">{{ con.name }}<br><small class="title">{{ con.title }}</small></h1>
             <h2 class="firm hide">{{ con.firm }}<br><small class="position">{{ con.position }}</small></h2>
             <hr>
-            <div class="text-center">
-              <span class="button secondary small">Learn more about {{ con.name }}</span>
-            </div>
+          </div>
+        </a>
+
+      {% endfor %}
+      </div>
+      <div class="row">
+      {% set people = get('/about/consultants') %}
+      {% for con in people.children %}
+          
+        {% set col = 2 %}
+        {% set offset = (loop.first) ? "large-offset-1" : "" %}
+        <a href="{{ con.permalink }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
+          <div class="text-center">
+            <span class="button secondary small">Learn more about {{ con.name }}</span>
           </div>
         </a>
 
