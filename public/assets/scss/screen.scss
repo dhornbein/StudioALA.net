@@ -85,10 +85,13 @@ li.divider {
 
 .breadcrumbs {
 	background: inherit;
+	box-shadow: 0 5px 10px -5px #DDD;
 	border: none;
 	font-family: $header-font-family;
 	margin-top: -$topbar-margin-bottom;
 	padding-left: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 #projects .m-section {
@@ -258,7 +261,7 @@ li.divider {
 		.details {
 			background-color: transparentize(#FFF, 0.7);
 			position: relative;
-			padding: 100px 20px 0;
+			padding: 70px 20px 0;
 			text-align: center;
 			text-shadow: 0 0 3px transparentize(#000, 0.7), 0 0 3px transparentize(#FFF, 0.7);
 			@include transition();
@@ -316,6 +319,7 @@ li.divider {
 
 .top-bar {
 	font-family: $header-font-family;
+	box-shadow: 0 5px 10px -5px #EEE;
 }
 
 .top-bar-section .dropdown {
@@ -330,6 +334,12 @@ li.divider {
 	    color: white;
 	    text-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
 	}
+}
+
+.sibling-wrapper {
+	background-color: #DDDFDD;
+	box-shadow: inset 0 5px 10px -5px #AAA;
+	padding:1.5em 0;
 }
 
 // State

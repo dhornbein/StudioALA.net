@@ -3325,7 +3325,7 @@ form.custom {
   width: 100%;
   background: white; }
   .contain-to-grid .top-bar {
-    margin-bottom: 1.66667em; }
+    margin-bottom: 2.66667em; }
 
 .fixed {
   width: 100%;
@@ -3340,7 +3340,7 @@ form.custom {
   line-height: 45px;
   position: relative;
   background: white;
-  margin-bottom: 1.66667em; }
+  margin-bottom: 2.66667em; }
   .top-bar ul {
     margin-bottom: 0;
     list-style: none; }
@@ -3556,7 +3556,7 @@ form.custom {
   .contain-to-grid .top-bar {
     max-width: 100%;
     margin: 0 auto;
-    margin-bottom: 1.66667em; }
+    margin-bottom: 2.66667em; }
 
   .top-bar-section {
     -webkit-transition: none 0 0;
@@ -5454,10 +5454,13 @@ li.divider {
 
 .breadcrumbs {
   background: inherit;
+  box-shadow: 0 5px 10px -5px #DDD;
   border: none;
   font-family: "Lato", Helvetica, Arial, sans-serif;
-  margin-top: -1.66667em;
-  padding-left: 1em; }
+  margin-top: -2.66667em;
+  padding-left: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em; }
 
 #projects .m-section .title {
   border-color: #FFF #FFF #CCC;
@@ -5577,7 +5580,7 @@ li.divider {
     .m-sibling a .details {
       background-color: rgba(255, 255, 255, 0.3);
       position: relative;
-      padding: 100px 20px 0;
+      padding: 70px 20px 0;
       text-align: center;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.3), 0 0 3px rgba(255, 255, 255, 0.3);
       -webkit-transition: all 300ms ease-in-out;
@@ -5619,7 +5622,8 @@ li.divider {
     content: 'view \00bb'; }
 
 .top-bar {
-  font-family: "Lato", Helvetica, Arial, sans-serif; }
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  box-shadow: 0 5px 10px -5px #EEE; }
 
 .top-bar-section .dropdown {
   border-left: 1px solid #f7f7f7;
@@ -5630,6 +5634,11 @@ li.divider {
   background-color: rgba(0, 0, 0, 0.25);
   color: white;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.25); }
+
+.sibling-wrapper {
+  background-color: #DDDFDD;
+  box-shadow: inset 0 5px 10px -5px #AAA;
+  padding: 1.5em 0; }
 
 .m-project a .title {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
