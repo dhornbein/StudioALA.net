@@ -89,6 +89,7 @@ li.divider {
 	border: none;
 	font-family: $header-font-family;
 	margin-top: -$topbar-margin-bottom;
+	margin-bottom: 1.5em;
 	padding-left: 1em;
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -327,10 +328,12 @@ li.divider {
 	box-shadow: 0 5px 10px -5px #EEE;
 }
 
-.top-bar-section .dropdown {
-	border-left: 1px solid $topbar-link-bg-hover;
-	border-bottom: 1px solid $topbar-link-bg-hover;
-	box-shadow: -1px 3px 3px transparentize(#000, 0.8);
+@media #{$small} {
+	.top-bar-section .dropdown {
+		border-left: 1px solid $topbar-link-bg-hover;
+		border-bottom: 1px solid $topbar-link-bg-hover;
+		box-shadow: -1px 3px 3px transparentize(#000, 0.8);
+	}
 }
 
 .m-project {
@@ -339,6 +342,10 @@ li.divider {
 	    color: white;
 	    text-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
 	}
+}
+
+.project-stats {
+	font-family: $header-font-family;
 }
 
 .sibling-wrapper {

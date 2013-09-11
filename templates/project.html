@@ -9,9 +9,9 @@
       <div class="small-12 large-4 column">
 
         {% if page.files['content.html'] %}
-        <div class="projectContent">{{ page.files['content.html'].content }}</div>
+        <div class="projectContent project-content-html">{{ page.files['content.html'].content }}</div>
         {% elseif page.content %}
-        <div class="projectContent">{{ page.content }}</div>
+        <div class="projectContent project-content-yaml">{{ page.content }}</div>
         {% endif %}
 
         {% if page.stats %}

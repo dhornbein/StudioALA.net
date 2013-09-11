@@ -10,7 +10,7 @@
 	<div class="project-group">{% include 'partials/projects/category.html' with { 'page' : child, 'h' : h + 1 } %}</div>
 {% else %}
 <div class="row">
-	<a href="{{ page.permalink }}" class="small-2 column project-stats">
+	<a href="{{ page.permalink }}" class="small-12 large-2 column project-stats">
 		{% if page.stats %}
         <ul class="no-bullet">
         {% for name, stat in page.stats %}
@@ -22,7 +22,7 @@
 	</a>
 	{% for img in page.images if loop.index <= 5 %}
 	{% set count = (count) ? count + 1 : 1 %}
-	<div class="img-gallery small-2 column {{ count == page.images|length or count == 5 ? 'end' : '' }}">
+	<div class="img-gallery small-4 large-2 column {{ count >3 ? 'hide-for-small' : '' }} {{ count == page.images|length or count == 5 ? 'end' : '' }}">
 		<a href="{{ img.url }}" title="{{ page.name|default(page.page_name) }} - {{ img.name }}"><img src="{{ img.small|default(page.thumb.url) }}" alt="{{ img.name }}"></a>
 	</div>
 	{% endfor %}
