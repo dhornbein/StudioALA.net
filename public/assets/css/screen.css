@@ -5658,6 +5658,10 @@ li.divider {
     color: #FFF; }
   #footer hr {
     border-color: #da795b; }
+  #footer a {
+    color: #da795b; }
+    #footer a:hover {
+      color: #d15731; }
 
 .m-project a .title {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
