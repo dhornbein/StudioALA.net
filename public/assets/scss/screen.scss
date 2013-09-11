@@ -195,11 +195,14 @@ li.divider {
 
 }
 
+.m-pl-thumb { min-width: 100%; }
+.m-pl-caption { display: none; }
+
+@media #{$small} {
 	.m-pl-project {
 		position: relative;;
 
 		.m-pl-thumb {
-			min-width: 100%;
 			position: relative;
 			z-index: 10;
 			@include transition(all, 200ms);
@@ -214,6 +217,7 @@ li.divider {
 		.m-pl-caption {
 			background-color: #222;
 			color:white;
+			display: block;
 			margin: 0;
 			padding: .5em;
 			position: absolute;
@@ -236,6 +240,7 @@ li.divider {
 			@include transition(all, 200ms);
 		}
 	}
+}
 
 .m-consultants {
 	.info {
@@ -342,6 +347,20 @@ li.divider {
 	padding:1.5em 0;
 }
 
+#footer {
+	background-color: $primary-color;
+	color: #FFF;
+	padding: 1.5em 0;
+
+	h1,h2,h3,h4,h5,h6 {
+		color:#FFF;
+	}
+
+	hr {
+		border-color: lighten($primary-color, 20%)
+	}
+}
+
 // State
 
 .m-project a {
@@ -373,4 +392,10 @@ li.divider {
 			border-color: $primary-color;
 		}
 	}
+}
+
+.small-text-center { text-align: center; }
+
+@media #{$small} {
+	.small-text-center { text-align: inherit; }
 }

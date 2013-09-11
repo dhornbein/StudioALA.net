@@ -22,8 +22,8 @@
     <div id="people" class="row green-bkg">
       <div class="large-2 column large-offset-1 text-center"><img src="./content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></div>
       <div class="large-8 column end">
-        <h1>George Hornbein</h1>
-        <h4>Founding partner of Studio ALA, LLC.</h4>
+        <h1 class="small-text-center">George Hornbein</h1>
+        <h4 class="small-text-center">Founding partner of Studio ALA, LLC.</h4>
         <p class="lead">He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years,    many of which have incorporated sustainable design features.</p>
       </div>
     </div>
@@ -53,8 +53,7 @@
 
       {% endfor %}
       </div>
-      <div class="row">
-      {% set people = get('/about/consultants') %}
+      <div class="row hide-for-small">
       {% for con in people.children %}
           
         {% set col = 2 %}
