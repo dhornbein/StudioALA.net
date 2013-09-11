@@ -3,7 +3,7 @@
 
   <title>{{ page.name }}'s {{ page.feed_name }}</title>
   <subtitle>{{ page.profession }}</subtitle>
-  <link href="http://{{ page.base_url }}/{{ page.permalink }}" hreflang="en" rel="self" type="application/atom+xml"/>
+  <link href="http://{{ page.base_url }}/{{ page.url }}" hreflang="en" rel="self" type="application/atom+xml"/>
   <link href="http://{{ page.base_url }}/" hreflang="en" rel="alternate" type="text/html"/>
   
   <updated>{{ page.site_updated }}</updated>
@@ -14,7 +14,7 @@
     <uri>http://{{ page.base_url }}</uri>
   </author>
 
-  <id>tag:{{ page.domain_name }},{{ page.current_year }}:/{{ page.permalink }}</id>
+  <id>tag:{{ page.domain_name }},{{ page.current_year }}:/{{ page.url }}</id>
   <rights>©{{ page.current_year }} {{ page.name }}</rights>
   {% include 'partials/feed/feed-loop.atom' %}
 

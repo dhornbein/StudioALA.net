@@ -3,7 +3,7 @@
 <section id="{{ child.slug|lower }}" class="row">
   {% if not loop.first %}<hr class="space">{% endif %}
   <div class="small-12 large-12 column">
-    <div class="title"><h1><a href="{{ child.permalink }}">{{ child.name|default(child.page_name) }}</a> <small>{{ child.content }}</small></h1></div>
+    <div class="title"><h1><a href="{{ child.url }}">{{ child.name|default(child.page_name) }}</a> <small>{{ child.content }}</small></h1></div>
   </div>
   <div class="m-projects-list small-12 column">
     <div class="row collapse">
@@ -15,7 +15,7 @@
           {% if proj.children %}
             {% for proj_child in proj.children %}
               {% if loop.index == 1 or proj_child.featured %}
-              {% include 'partials/projects/projects_list_content.html' with { 'page' : proj_child, 'title' : proj.name|default(proj.page_name), 'permalink' : proj.permalink } %}
+              {% include 'partials/projects/projects_list_content.html' with { 'page' : proj_child, 'title' : proj.name|default(proj.page_name), 'permalink' : proj.url } %}
               {% endif %}
             {% endfor %}
           {% else %}

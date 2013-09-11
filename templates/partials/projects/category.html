@@ -3,14 +3,14 @@
 
 <div class="row {{ page.children ? 'project-title' : 'project-subtitle' }}">
     <div class="column small-12">
-        <h{{ h }}><a href="{{ page.permalink }}">{{ page.name|default(page.page_name) }}</a></h{{ h }}>
+        <h{{ h }}><a href="{{ page.url }}">{{ page.name|default(page.page_name) }}</a></h{{ h }}>
     </div>
 </div>
 {% for child in page.children if page.children %}
 	<div class="project-group">{% include 'partials/projects/category.html' with { 'page' : child, 'h' : h + 1 } %}</div>
 {% else %}
 <div class="row">
-	<a href="{{ page.permalink }}" class="small-12 large-2 column project-stats">
+	<a href="{{ page.url }}" class="small-12 large-2 column project-stats">
 		{% if page.stats %}
         <ul class="no-bullet">
         {% for name, stat in page.stats %}

@@ -6,12 +6,12 @@
         <div class="m-projects-list row collapse">
           
             <div class="large-3 column title">
-              <h3 class=""><a href="{{ child.permalink }}">{{ child.name|default(child.page_name) }}</a></h3>
+              <h3 class=""><a href="{{ child.url }}">{{ child.name|default(child.page_name) }}</a></h3>
             </div>
             <div class="large-9 column">
               {% for sub in child.children %}
               <div class="projectThumb large-{{ 12 / loop.length }} column">
-                <a href="{{ sub.permalink }}"><img src="{{ sub.thumb.url|default(sub.image['1'].url) }}" alt="{{ sub.name|default(sub.page_name) ~ ' - ' ~ sub.stats.location }}"></a>
+                <a href="{{ sub.url }}"><img src="{{ sub.thumb.url|default(sub.image['1'].url) }}" alt="{{ sub.name|default(sub.page_name) ~ ' - ' ~ sub.stats.location }}"></a>
               </div>
               {% endfor %}
             </div>

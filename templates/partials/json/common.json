@@ -4,5 +4,5 @@
       "url": "{{ page.url }}",
       "updated": "{{ page.updated }}",
       "content": "{{ page.content }}",
-      "permalink": "{{ page.permalink }}",
+      "permalink": "{{ page.url }}",
       "slug": "{{ page.slug }}"

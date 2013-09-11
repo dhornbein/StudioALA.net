@@ -16,10 +16,10 @@
         <h1>{{ page.subtitle }}</h1>
         <h2>George Hornbein</h2>
         <div class="row">
-          <div class="small-3 column text-center"><a href="{{ page.children['1.George-Hornbein'].permalink }}"><img src="./content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></a></div>
+          <div class="small-3 column text-center"><a href="{{ page.children['1.George-Hornbein'].url }}"><img src="/content/1.about/1.George-Hornbein/george_headshot.jpg" alt=""></a></div>
           <div class="small-9 column">
             <p class="lead">Is a founding partner of Studio ALA, LLC. He has been the Project Manager, Design Architect and Architect of Record on numerous government projects over the last 20 years, many of which have incorporated sustainable design features.</p>
-            <a href="{{ page.children['1.George-Hornbein'].permalink }}" class="button small">Read More...</a>
+            <a href="{{ page.children['1.George-Hornbein'].url }}" class="button small">Read More...</a>
           </div>
         </div>
         <hr>
@@ -28,10 +28,10 @@
           {% set people = get('/about/consultants') %}
           {% for con in people.children %}
 
-          <a href="{{ con.permalink }}" class="row margin-bottom">
+          <a href="{{ con.url }}" class="row margin-bottom">
             <div class="small-3 column">
               {% for img in con.images if loop.first %}
-                <img src="{{ img }}" alt="" class="profile img-circle">
+                <img src="{{ img.url }}" alt="" class="profile img-circle">
               {% endfor %}
             </div>
             <div class="info small-9 column">

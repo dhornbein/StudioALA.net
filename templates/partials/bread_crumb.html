@@ -1,7 +1,7 @@
 <nav class="breadcrumbs">
 	<a href="/">Home</a>
 	{% for parent in page.parents|reverse %}
-	<a href="{{ parent.permalink }}">{{ parent.name|default(parent.page_name) }}</a>
+	<a href="{{ parent.url }}">{{ parent.name|default(parent.page_name) }}</a>
 	{% endfor %}
 	<a class="current" href="#">{{ page.name|default(page.page_name) }}</a>
 </nav>

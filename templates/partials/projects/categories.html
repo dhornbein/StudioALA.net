@@ -22,7 +22,7 @@
   {% endif %}
 
   <div class="m-project {{ class }} columns large-{{ column_class }}{{ loop.index is divisibleby(columns) ? ' end' : '' }}">
-    <a href="{{ child.permalink }}">
+    <a href="{{ child.url }}">
       <div class="title">{{ child.name|default(child.page_name) }}</div>
       <div class="projectThumb">
         <img src="{{ child.images['featured.jpg'].url|default(child.thumb.url) }}" alt="{{ child.name|default(child.page_name) ~ ' - ' ~ child.stats.location|default(page.site.title) }}">

@@ -9,9 +9,9 @@
         {% set col = 2 %}
         {% set selected = ( con.slug == page.slug ) ? 'active' : '' %}
         {% set offset = (loop.first) ? "large-offset-1" : "" %}
-        <a href="{{ con.permalink }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center {{ selected }}">
+        <a href="{{ con.url }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center {{ selected }}">
           {% for img in con.images if loop.first %}
-            <img src="{{ img }}" alt="" class="profile img-circle">
+            <img src="{{ img.url }}" alt="" class="profile img-circle">
           {% endfor %}
           <hr>
           <div class="info">

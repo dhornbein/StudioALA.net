@@ -9,10 +9,10 @@
             {% set people = get('/about/consultants') %}
             {% for con in people.children %}
       
-            <a href="{{ con.permalink }}" class="row margin-bottom">
+            <a href="{{ con.url }}" class="row margin-bottom">
               <div class="small-3 column">
                 {% for img in con.images if loop.first %}
-                  <img src="{{ img }}" alt="" class="profile img-circle">
+                  <img src="{{ img.url }}" alt="" class="profile img-circle">
                 {% endfor %}
               </div>
               <div class="info small-9 column">

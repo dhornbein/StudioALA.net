@@ -39,7 +39,7 @@
           
         {% set col = 2 %}
         {% set offset = (loop.first) ? "large-offset-1" : "" %}
-        <a href="{{ con.permalink }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
+        <a href="{{ con.url }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
           {% for img in con.images if loop.first %}
             <img src="{{ img }}" alt="" class="profile img-circle">
           {% endfor %}
@@ -58,7 +58,7 @@
           
         {% set col = 2 %}
         {% set offset = (loop.first) ? "large-offset-1" : "" %}
-        <a href="{{ con.permalink }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
+        <a href="{{ con.url }}" class="large-{{ col }} {{ offset }} columns{{ loop.last ? ' end' : '' }} text-center">
           <div class="text-center">
             <span class="button secondary small">Learn more about {{ con.name }}</span>
           </div>
