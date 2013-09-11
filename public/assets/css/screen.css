@@ -5646,7 +5646,7 @@ li.divider {
   -moz-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out; }
-.m-consultants a:hover h4 {
+.m-consultants a:hover h4, .m-consultants a.active h4 {
   color: #a94526; }
-.m-consultants a:hover hr {
+.m-consultants a:hover hr, .m-consultants a.active hr {
   border-color: #a94526; }

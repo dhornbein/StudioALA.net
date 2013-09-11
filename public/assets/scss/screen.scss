@@ -353,12 +353,14 @@ li.divider {
 		@include transition();
 	}
 
-	&:hover {
+	&:hover,
+	&.active {
 		h4 {
 			color: $primary-color;
 		}
-	}
-	&:hover hr {
-		border-color: $primary-color;
+
+		hr {
+			border-color: $primary-color;
+		}
 	}
 }
