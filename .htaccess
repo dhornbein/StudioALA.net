@@ -2,7 +2,7 @@ RewriteEngine on
 
 # Some hosts require a rewritebase rule, if so, uncomment the RewriteBase line below. If you are running from a subdirectory, your rewritebase should match the name of the path to where stacey is stored.
 # ie. if in a folder named 'stacey', RewriteBase /stacey
-#RewriteBase /
+RewriteBase /
 
 ErrorDocument 404 /404.html
 
@@ -39,11 +39,8 @@ RewriteRule ^(.+)$ public/$1 [L]
 # Allow basic authentication
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 
-# Prevent access to .txt files
-<Files ~ "\.txt$">
-  Order allow,deny
-  Deny from all
-</Files>
+# Prevent access to .txt & .yml files
+RedirectMatch 404 \.(txt|yml)$
 
 # Increase cookie security
 <IfModule php5_module>
